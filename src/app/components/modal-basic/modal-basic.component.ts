@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
-interface compteRendu{
+interface compteRendu {
   Chapter_name: string;
   Cour_name: string;
   Url: String;
