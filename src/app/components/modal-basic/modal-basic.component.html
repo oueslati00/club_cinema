@@ -1,0 +1,45 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">List of Compte Rendu</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="table-responsive">
+      <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+        <tr>
+          <th scope="col">Chapter Name</th>
+          <th scope="col">Cour Name</th>
+          <th scope="col">Compte Rendu</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let compteRendu of listOfCompteRendu">
+          <th scope="row">
+            <div class="media align-items-center">
+
+              <div class="media-body">
+                <span class="mb-0 text-sm">{{compteRendu.Chapter_name}}</span>
+              </div>
+            </div>
+          </th>
+          <td>
+            {{compteRendu.Cour_name}}
+          </td>
+          <td>
+          {{compteRendu.Url}}
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+  </div>
+</ng-template>
+
+<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Compte Rendu</button>
+
