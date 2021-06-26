@@ -7,12 +7,19 @@ import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalBasicComponent } from './modal-basic/modal-basic.component';
 import {AddcourComponent, NgbdModal1Content, NgbdModal2Content} from './addcour/addcour.component';
+import {VgCoreModule} from 'videogular2/compiled/src/core/core';
+import {NgxFileDropModule} from 'ngx-file-drop';
+
+
+
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    NgbModule
+    NgbModule,
+    VgCoreModule,
+    NgxFileDropModule
   ],
   declarations: [
     FooterComponent,
