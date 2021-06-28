@@ -14,7 +14,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { UserLayoutComponent } from './layouts/user-layout/user-layout.component';
-import { HomePageComponent } from './pages/home-page/home-page.component';
 import { DisplayformationComponent } from './pages/displayformation/displayformation.component';
 import { UserInfoComponent } from './pages/user-info/user-info.component';
 import { DisplaylistvideoComponent } from './pages/displaylistvideo/displaylistvideo.component';
@@ -39,7 +38,6 @@ import {NgxFileDropModule} from 'ngx-file-drop';
     AdminLayoutComponent,
     AuthLayoutComponent,
     UserLayoutComponent,
-    HomePageComponent,
     DisplayformationComponent,
     UserInfoComponent,
     DisplaylistvideoComponent,

@@ -32,14 +32,15 @@ import { SidbaruserComponent } from './sidbaruser/sidbaruser.component';
     NgbdModal2Content,
     SidbaruserComponent
   ],
-  exports: [
-    FooterComponent,
-    NavbarComponent,
-    SidebarComponent,
-    ModalBasicComponent,
-    NgbdModal1Content,
-    NgbdModal2Content,
-     AddcourComponent
-  ]
+    exports: [
+        FooterComponent,
+        NavbarComponent,
+        SidebarComponent,
+        ModalBasicComponent,
+        NgbdModal1Content,
+        NgbdModal2Content,
+        AddcourComponent,
+        SidbaruserComponent
+    ]
 })
 export class ComponentsModule { }

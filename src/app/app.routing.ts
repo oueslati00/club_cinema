@@ -5,14 +5,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import {UserLayoutComponent} from './layouts/user-layout/user-layout.component';
 
 const routes: Routes =[
-  {
-    path: '',
-    redirectTo: 'dashboard',
-    pathMatch: 'full',
-  }, {
-    path: '',
+   {
+    path: 'admin',
     component: AdminLayoutComponent,
     children: [
       {
@@ -21,7 +18,7 @@ const routes: Routes =[
       }
     ]
   }, {
-    path: '',
+    path: 'auth',
     component: AuthLayoutComponent,
     children: [
       {
@@ -29,10 +26,21 @@ const routes: Routes =[
         loadChildren: './layouts/auth-layout/auth-layout.module#AuthLayoutModule'
       }
     ]
-  }, {
-    path: '**',
-    redirectTo: 'dashboard'
-  }
+  },
+  {
+    path: 'user',
+    component:  UserLayoutComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: './layouts/user-layout/user-layout.module#UserLayoutModule'
+      }
+    ]
+  },{
+    path: '',
+    redirectTo: 'homePage',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({

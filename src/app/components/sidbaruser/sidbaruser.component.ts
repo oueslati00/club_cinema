@@ -9,10 +9,10 @@ declare interface RouteInfo {
 }
 export const ROUTES: RouteInfo[] = [
 
-  { path: '/user-profile', title: 'User profile',  icon:'ni-single-02 text-yellow', class: '' },
-  { path: '/showvideo', title: 'video dkika ',  icon:'ni-key-25 text-info', class: '' },
-  { path: '/displayformation', title: 'Register',  icon:'ni-circle-08 text-pink', class: '' },
-  { path: '/logout' , title: 'Logout', icon:'ni ni-user-run', class: '' }
+  { path: 'user/userInfo', title: 'User profile',  icon:'ni-single-02 text-yellow', class: '' },
+  { path: 'user/formation_display', title: 'Formation Display',  icon:'ni-key-25 text-info', class: '' },
+  { path: 'user/listvideo', title: 'video dkika',  icon:'ni-circle-08 text-pink', class: '' },
+  { path: '' , title: 'Logout', icon:'ni ni-user-run', class: '' }
 ];
 @Component({
   selector: 'app-sidbaruser',
