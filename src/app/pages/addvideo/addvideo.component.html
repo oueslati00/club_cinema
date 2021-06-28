@@ -1,0 +1,129 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <!-- Card stats -->
+      <h1 class="display-2 text-white">video dkika interface</h1>
+    </div>
+  </div>
+</div>
+<div class="container-fluid mt--7">
+  <div class="row">
+    <div class="col-xl-8 mb-5 mb-xl-0">
+      <div class="card bg-gradient-default shadow">
+        <div class="card-header bg-transparent">
+          <div class="row align-items-center">
+            <div class="col">
+
+              <h2 class="text-white mb-0">Remplir se formulaire </h2>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <!-- Chart -->
+            <!-- Chart wrapper -->
+          <div class="container">
+            <form>
+              <h6 class="text-uppercase text-light ls-1 mb-1">add video</h6>
+              <div class="pl-lg-4">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="input-name"><h6 class="text-uppercase text-light ls-1 mb-1">title</h6></label>
+                      <input type="text" id="input-name" class="form-control form-control-alternative" placeholder="cour name">
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="input-editor"><h6 class="text-uppercase text-light ls-1 mb-1">editor</h6></label>
+                      <input type="text" id="input-editor" class="form-control form-control-alternative" placeholder="editor name">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label><h6 class="text-uppercase text-light ls-1 mb-1">Description</h6></label>
+                  <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about your video ..."></textarea>
+                </div>
+                <div class="container">
+                  <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)"
+                                 (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+                    <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                      drag and drop the file
+                      <button type="button" (click)="openFileSelector()">Browse</button>
+                    </ng-template>
+                  </ngx-file-drop>
+                  <div class="upload-table">
+                    <table class="table">
+                      <thead>
+                      <tr>
+                        <th>Name</th>
+                      </tr>
+                      </thead>
+                      <tbody class="upload-name-style">
+                      <tr *ngFor="let item of files; let i=index">
+                        <td><strong>{{ item.relativePath }}</strong></td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <br>
+                  <div class="col text-right">
+                    <a href="#!" class="btn btn-sm btn-primary">add video</a>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="row mt-5">
+    <div class="col-xl-8 mb-5 mb-xl-0">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <div class="row align-items-center">
+            <div class="col">
+              <h3 class="mb-0">List Of Video</h3>
+            </div>
+
+          </div>
+        </div>
+        <div class="table-responsive">
+          <!-- Projects table -->
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+            <tr>
+              <th scope="col"> name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Editor</th>
+              <th scope="col">rate</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <th scope="row">
+                video one
+              </th>
+              <td>
+                first three word of the description
+              </td>
+              <td>
+                Editor name
+              </td>
+              <td>
+                <i class="fas fa-arrow-up text-success mr-3"></i> 46,53%
+              </td>
+            </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+

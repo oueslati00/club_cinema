@@ -9,6 +9,7 @@ import { ModalBasicComponent } from './modal-basic/modal-basic.component';
 import {AddcourComponent, NgbdModal1Content, NgbdModal2Content} from './addcour/addcour.component';
 import {VgCoreModule} from 'videogular2/compiled/src/core/core';
 import {NgxFileDropModule} from 'ngx-file-drop';
+import { SidbaruserComponent } from './sidbaruser/sidbaruser.component';
 
 
 
@@ -28,7 +29,8 @@ import {NgxFileDropModule} from 'ngx-file-drop';
     ModalBasicComponent,
     AddcourComponent,
     NgbdModal1Content,
-    NgbdModal2Content
+    NgbdModal2Content,
+    SidbaruserComponent
   ],
   exports: [
     FooterComponent,
@@ -37,7 +39,7 @@ import {NgxFileDropModule} from 'ngx-file-drop';
     ModalBasicComponent,
     NgbdModal1Content,
     NgbdModal2Content,
-    AddcourComponent
+     AddcourComponent
   ]
 })
 export class ComponentsModule { }

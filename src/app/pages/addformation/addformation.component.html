@@ -1,4 +1,4 @@
-<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(assets/img/theme/profil-cover1.jpg); background-size: cover; background-position: center top;">
   <!-- Mask -->
   <span class="mask bg-gradient-danger opacity-8"></span>
   <!-- Header container -->
@@ -18,34 +18,13 @@
       <div class="card card-profile shadow">
         <div class="row justify-content-center">
           <div class="col-lg-3 order-lg-2">
-            <div class="card-profile-image">
-              <a href="javascript:void(0)">
-                <img src="assets/img/theme/team-4-800x800.jpg" class="rounded-circle">
-              </a>
-            </div>
+
           </div>
         </div>
         <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
         </div>
         <div class="card-body pt-0 pt-md-4">
-          <div class="row">
-            <div class="col">
-              <div class="card-profile-stats d-flex justify-content-center mt-md-5">
-                <div>
-                  <span class="heading"></span>
-                  <span class="description"></span>
-                </div>
-                <div>
-                  <span class="heading"></span>
-                  <span class="description"></span>
-                </div>
-                <div>
-                  <span class="heading"></span>
-                  <span class="description"></span>
-                </div>
-              </div>
-            </div>
-          </div>
+
           <div class="text-center">
             <form>
               <h6 class="heading-small text-muted mb-4">Formateur information</h6>
@@ -71,9 +50,7 @@
             <div class="col-8">
               <h3 class="mb-0">Formation </h3>
             </div>
-            <div class="col-4 text-right">
-              <a href="#!" class="btn btn-sm btn-primary">add chapter</a>
-            </div>
+
           </div>
 
         </div>
@@ -99,13 +76,13 @@
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="form-control-label" for="input-date-start">date to start</label>
-                    <input type="text" id="input-date-start" class="form-control form-control-alternative" placeholder="First name" value="Lucky">
+                    <input type="date" id="input-date-start" class="form-control form-control-alternative" placeholder="First name" value="Lucky">
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="form-control-label" for="input-date-end">date to end </label>
-                    <input type="text" id="input-date-end" class="form-control form-control-alternative" placeholder="Last name" value="Jesse">
+                    <input type="date" id="input-date-end" class="form-control form-control-alternative" placeholder="Last name" value="Jesse">
                   </div>
                 </div>
               </div>
@@ -115,8 +92,7 @@
             <h6 class="heading-small text-muted mb-4">Formation description</h6>
             <div class="pl-lg-4">
               <div class="form-group">
-                <label>About Me</label>
-                <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about you ...">A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea>
+                <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about your formation ..."></textarea>
               </div>
             </div>
             <hr class="my-4" />
@@ -125,16 +101,16 @@
               <div class="col">
                 <div class="card shadow">
                   <div class="card-header border-0">
-                    <h3 class="mb-0">Chapter List</h3>
+                    <h3 class="mb-0">Lesson List</h3>
                   </div>
                   <div class="table-responsive">
                     <table class="table align-items-center table-flush">
                       <thead class="thead-light">
                       <tr>
-                        <th scope="col">Chapter number</th>
-                        <th scope="col">Chapter name</th>
+                        <th scope="col">numero</th>
+                        <th scope="col">name</th>
                         <th scope="col">List Of Cours</th>
-                        <th scope="col">Users</th>
+                        <th scope="col">remove</th>
                       </tr>
                       </thead>
                       <tbody>
@@ -142,32 +118,23 @@
                         <th scope="row">
                           <div class="media align-items-center">
                             <div class="media-body">
-                              <span class="mb-0 text-sm">number</span>
+                              <span class="mb-0 text-sm">1</span>
                             </div>
                           </div>
                         </th>
                         <td>
                           <div class="form-group">
-                            <input type="text" class="form-control form-control-alternative" placeholder="chapter name" >
+                            <input type="text" class="form-control form-control-alternative" placeholder="name of lesson" >
                           </div>
                         </td>
                         <td>
                   <span class="badge badge-dot mr-4">
-                    <i class="bg-warning"></i> <app-addcour></app-addcour>
+                     <app-addcour></app-addcour>
                   </span>
                         <td class="text-right">
-                          <div ngbDropdown placement="bottom-right">
-                            <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
-                              <i class="fas fa-ellipsis-v"></i>
-                            </a>
-                            <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
-                              <a class="dropdown-item" href="javascript:void(0)">Delete</a>
-                            </div>
-                          </div>
+                         <button class="btn btn-danger"> remove</button>
                         </td>
                       </tr>
-
-
                       </tbody>
                     </table>
                   </div>
@@ -175,7 +142,7 @@
                     <nav aria-label="...">
                       <ul class="pagination justify-content-end mb-0">
                         <li class="page-item disabled">
-                          <button class="btn btn-success">Add chapter</button>
+                          <button class="btn btn-success">Add Lesson</button>
                         </li>
 
                       </ul>
