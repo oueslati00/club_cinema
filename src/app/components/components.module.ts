@@ -6,7 +6,7 @@ import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalBasicComponent } from './modal-basic/modal-basic.component';
-import {AddcourComponent, NgbdModal1Content, NgbdModal2Content} from './addcour/addcour.component';
+import {AddcourComponent} from './addcour/addcour.component';
 import {VgCoreModule} from 'videogular2/compiled/src/core/core';
 import {NgxFileDropModule} from 'ngx-file-drop';
 import { SidbaruserComponent } from './sidbaruser/sidbaruser.component';
@@ -28,8 +28,6 @@ import { SidbaruserComponent } from './sidbaruser/sidbaruser.component';
     SidebarComponent,
     ModalBasicComponent,
     AddcourComponent,
-    NgbdModal1Content,
-    NgbdModal2Content,
     SidbaruserComponent
   ],
     exports: [
@@ -37,8 +35,6 @@ import { SidbaruserComponent } from './sidbaruser/sidbaruser.component';
         NavbarComponent,
         SidebarComponent,
         ModalBasicComponent,
-        NgbdModal1Content,
-        NgbdModal2Content,
         AddcourComponent,
         SidbaruserComponent
     ]

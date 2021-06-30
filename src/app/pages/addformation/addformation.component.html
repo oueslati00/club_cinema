@@ -100,7 +100,7 @@
                         </td>
                         <td>
                   <span class="badge badge-dot mr-4">
-                     <app-addcour [lessonItd]=lesson.id></app-addcour>
+                    <button class="btn btn-danger" (click)="openModalWithComponent(lesson.id)"> add chpater {{lesson.id}}</button>
                   </span>
                         <td class="text-right">
                          <button class="btn btn-danger" (click)="removebyId(lesson.id)"> remove</button>
