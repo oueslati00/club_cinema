@@ -5,7 +5,7 @@ import { RegisterComponent } from '../../pages/register/register.component';
 import {HomePageComponent} from '../../pages/home-page/home-page.component';
 
 export const AuthLayoutRoutes: Routes = [
-    { path: 'auth/login',          component: LoginComponent },
-    { path: 'auth/register',       component: RegisterComponent },
-    {path : 'auth/homePage', component : HomePageComponent}
+    { path: 'login',          component: LoginComponent },
+    { path: 'register',       component: RegisterComponent },
+    {path : 'homePage', component : HomePageComponent}
 ];

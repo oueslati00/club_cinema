@@ -6,8 +6,9 @@ import { MapsComponent } from '../../pages/maps/maps.component';
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
 import { TablesComponent } from '../../pages/tables/tables.component';
 import {AddformationComponent} from '../../pages/addformation/addformation.component';
-import {HomePageComponent} from '../../pages/home-page/home-page.component';
 import {AddvideoComponent} from '../../pages/addvideo/addvideo.component';
+import {FormationListComponent} from '../../pages/formation-list/formation-list.component';
+import {UserformtionComponent} from '../../pages/userformtion/userformtion.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -16,5 +17,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'icons',          component: IconsComponent },
     { path: 'members',           component: MapsComponent },
     {path: 'addforamtion', component: AddformationComponent},
-  {path : 'videoDkika', component: AddvideoComponent}
+  {path : 'videoDkika', component: AddvideoComponent},
+  {path: 'formationlist', component: FormationListComponent},
+  {path: 'userformation' , component: UserformtionComponent}
 ];

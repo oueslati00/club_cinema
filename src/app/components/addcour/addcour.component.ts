@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {FileSystemDirectoryEntry, FileSystemFileEntry, NgxFileDropEntry} from 'ngx-file-drop';
+import {FormationService} from '../../layouts/admin-layout/_service/formation.service';
+import { BsModalRef, BsModalService } from  'ngx-bootstrap/modal/';
 
 @Component({
   template: `
@@ -48,7 +50,16 @@ import {FileSystemDirectoryEntry, FileSystemFileEntry, NgxFileDropEntry} from 'n
   `
 })
 export class NgbdModal1Content {
-  constructor(private modalService: NgbModal, public activeModal: NgbActiveModal) {}
+  lessonItd: number ;
+  chapter: any;
+  constructor(private modalService: NgbModal, public activeModal: NgbActiveModal, private formationservice: FormationService) {
+    this.modalService.activeInstances.subscribe((list) => {
+      console.log(list.length);
+      this.lessonItd = list.lessonItd;
+    });
+    this.chapter = formationservice.formation.chapter.find(x => x.id === this.lessonItd);
+
+  }
 
   open() {
     this.modalService.open(NgbdModal2Content, {
@@ -134,11 +145,11 @@ export class NgbdModal2Content {
     }
   }
 
-  public fileOver(event){
+  public fileOver(event) {
     console.log(event);
   }
 
-  public fileLeave(event){
+  public fileLeave(event) {
     console.log(event);
   }
   constructor(public activeModal: NgbActiveModal) {}
@@ -151,15 +162,15 @@ export class NgbdModal2Content {
   styleUrls: ['./addcour.component.css']
 })
 export class AddcourComponent  {
-  modalsNumber = 0;
-  constructor(private modalService: NgbModal) {
-    this.modalService.activeInstances.subscribe((list) => {
-      this.modalsNumber = list.length;
-    });
-  }
+  @Input() lessonItd: number;
 
-  open() {
-    this.modalService.open(NgbdModal1Content);
+  constructor(private modalService: NgbModal ) {
+
+  }
+  open(lessonId) {
+    const ModalRefer = this.modalService.open(NgbdModal1Content);
+    ModalRefer.componentInstance.lessonItd = lessonId;
+
   }
 
 }

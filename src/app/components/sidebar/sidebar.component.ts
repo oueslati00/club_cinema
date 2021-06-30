@@ -8,13 +8,14 @@ declare interface RouteInfo {
     class: string;
 }
 export const ROUTES: RouteInfo[] = [
-    { path: '/dashboard', title: 'Dashboard',  icon: 'ni-tv-2 text-primary', class: '' },
-    { path: '/icons', title: 'Icons',  icon:'ni-planet text-blue', class: '' },
-    { path: '/members', title: 'Member Information',  icon:'ni ni-badge text-orange', class: '' },
-    { path: '/user-profile', title: 'My profile',  icon:'ni-single-02 text-yellow', class: '' },
-    {path:'/addforamtion',title:'add formation', icon:'ni ni-book-bookmark text-red', class:''},
-    { path: '/videoDkika', title: ' Video Dkika',  icon:'ni-key-25 text-info', class: '' },
-    {path: '/logout' , title: 'Logout', icon:'ni ni-user-run', class: '' }
+    { path: 'dashboard', title: 'Dashboard',  icon: 'ni-tv-2 text-primary', class: '' },
+    { path: 'icons', title: 'Icons',  icon: 'ni-planet text-blue', class: '' },
+    { path: 'members', title: 'Member Information',  icon: 'ni ni-badge text-orange', class: '' },
+    { path: 'user-profile', title: 'My profile',  icon: 'ni-single-02 text-yellow', class: '' },
+    {path: 'addforamtion' , title : 'add formation' , icon: 'ni ni-book-bookmark text-red', class: ''},
+    { path: 'videoDkika', title: ' Video Dkika',  icon: 'ni-key-25 text-info', class: '' },
+  {path : 'formationlist', title: 'formation list' , icon : 'ni ni-book-bookmark text-red', class:''},
+    {path: 'logout' , title: 'Logout', icon: 'ni ni-user-run', class: '' }
 
 ];
 

@@ -19,6 +19,10 @@ import { UserInfoComponent } from './pages/user-info/user-info.component';
 import { DisplaylistvideoComponent } from './pages/displaylistvideo/displaylistvideo.component';
 import { AddvideoComponent } from './pages/addvideo/addvideo.component';
 import {NgxFileDropModule} from 'ngx-file-drop';
+import {RfxParallaxModule} from 'rfx-parallax';
+import {VgCoreModule} from 'videogular2/compiled/src/core/core';
+import {authInterceptorProviders} from './layouts/auth-layout/_helpers/auth.interceptor';
+
 
 
 
@@ -31,7 +35,10 @@ import {NgxFileDropModule} from 'ngx-file-drop';
     NgbModule,
     RouterModule,
     AppRoutingModule,
-    NgxFileDropModule
+    NgxFileDropModule,
+    RfxParallaxModule,
+    VgCoreModule
+
   ],
   declarations: [
     AppComponent,
@@ -42,8 +49,9 @@ import {NgxFileDropModule} from 'ngx-file-drop';
     UserInfoComponent,
     DisplaylistvideoComponent,
     AddvideoComponent
+
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

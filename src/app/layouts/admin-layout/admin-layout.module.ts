@@ -14,6 +14,8 @@ import { TablesComponent } from '../../pages/tables/tables.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {ComponentsModule} from '../../components/components.module';
 import {AddformationComponent} from '../../pages/addformation/addformation.component';
+import {FormationListComponent} from '../../pages/formation-list/formation-list.component';
+import {UserformtionComponent} from '../../pages/userformtion/userformtion.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -32,7 +34,9 @@ import {AddformationComponent} from '../../pages/addformation/addformation.compo
     TablesComponent,
     IconsComponent,
     MapsComponent,
-    AddformationComponent
+    AddformationComponent,
+    FormationListComponent,
+    UserformtionComponent
   ]
 })
 

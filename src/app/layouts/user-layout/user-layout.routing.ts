@@ -9,8 +9,8 @@ import {HomePageComponent} from '../../pages/home-page/home-page.component';
 import {UserInfoComponent} from '../../pages/user-info/user-info.component';
 
 export const UserLayoutRoutes: Routes = [
-  { path: 'user/userInfo',          component: UserInfoComponent },
-  { path: 'user/formation_display',       component: DisplayformationComponent },
-  {path : 'user/listvideo', component: DisplaylistvideoComponent}
+  { path: 'userInfo',          component: UserInfoComponent },
+  { path: 'formation_display',       component: DisplayformationComponent },
+  {path : 'listvideo', component: DisplaylistvideoComponent}
 ]
 

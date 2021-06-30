@@ -7,7 +7,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import {UserLayoutComponent} from './layouts/user-layout/user-layout.component';
 
-const routes: Routes =[
+const routes: Routes = [
    {
     path: 'admin',
     component: AdminLayoutComponent,
@@ -36,7 +36,8 @@ const routes: Routes =[
         loadChildren: './layouts/user-layout/user-layout.module#UserLayoutModule'
       }
     ]
-  },{
+  },
+  {
     path: '',
     redirectTo: 'homePage',
     pathMatch: 'full',
