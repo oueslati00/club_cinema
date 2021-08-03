@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {FormationRequest} from '../../../Models/FormationRequest';
+import {FormationRequest} from '../../../_service/Models/FormationRequest';
 import {Observable} from 'rxjs';
-import {UserResponse} from '../../../Models/UserInformation';
+import {UserResponse} from '../../../_service/Models/UserInformation';
 import {TokenStorageService} from '../../auth-layout/_service/token-storage.service';
 const API_URL = 'http://localhost:9098/admin/';
 @Injectable({

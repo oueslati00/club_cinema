@@ -25,7 +25,7 @@ export class AddcourComponent implements OnInit  {
   }
 
   saveToList(form) {
-    if(form.value){
+    if(form.value) {
       this.triggerEvent(form.value.name);
       this.bsModalRef.hide();
     }

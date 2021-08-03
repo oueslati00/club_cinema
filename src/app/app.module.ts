@@ -22,6 +22,10 @@ import {NgxFileDropModule} from 'ngx-file-drop';
 import {RfxParallaxModule} from 'rfx-parallax';
 import {VgCoreModule} from 'videogular2/compiled/src/core/core';
 import {authInterceptorProviders} from './layouts/auth-layout/_helpers/auth.interceptor';
+import { ForgetpasswordComponent } from './pages/forgetpassword/forgetpassword.component';
+import { SendmailComponent } from './pages/forgetpassword/sendmail/sendmail.component';
+import { SendcodeComponent } from './pages/forgetpassword/sendcode/sendcode.component';
+import { UpdatepasswordComponent } from './pages/forgetpassword/updatepassword/updatepassword.component';
 
 
 
@@ -37,7 +41,8 @@ import {authInterceptorProviders} from './layouts/auth-layout/_helpers/auth.inte
     AppRoutingModule,
     NgxFileDropModule,
     RfxParallaxModule,
-    VgCoreModule
+    VgCoreModule,
+
 
   ],
   declarations: [
@@ -48,7 +53,10 @@ import {authInterceptorProviders} from './layouts/auth-layout/_helpers/auth.inte
     DisplayformationComponent,
     UserInfoComponent,
     DisplaylistvideoComponent,
-    AddvideoComponent
+    AddvideoComponent,
+    SendmailComponent,
+    SendcodeComponent,
+    UpdatepasswordComponent
 
   ],
   providers: [authInterceptorProviders],

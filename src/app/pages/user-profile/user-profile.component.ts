@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UpdateInformationService} from '../../layouts/admin-layout/_service/update-information.service';
-import {UserResponse} from '../../Models/UserInformation';
+import {UserResponse} from '../../_service/Models/UserInformation';
 import {TokenStorageService} from '../../layouts/auth-layout/_service/token-storage.service';
 
 @Component({

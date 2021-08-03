@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
   }
   onSubmit(): void {
+    console.log('submit method was executed of login ');
     this.authService.login(this.form).subscribe(
       data => {
         console.log(this.form);

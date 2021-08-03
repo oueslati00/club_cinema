@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
-import {VideoDkika} from '../../../Models/VideoDkika';
+import {VideoDkika} from '../../../_service/Models/VideoDkika';
 import {HttpClient} from '@angular/common/http';
 const API_URL = 'http://localhost:9098/videoDkika/';
 @Injectable({

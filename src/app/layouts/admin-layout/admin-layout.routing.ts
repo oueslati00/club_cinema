@@ -17,7 +17,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'icons',          component: IconsComponent },
     { path: 'members',           component: MapsComponent },
     {path: 'addforamtion', component: AddformationComponent},
-  {path : 'videoDkika', component: AddvideoComponent},
-  {path: 'formationlist', component: FormationListComponent},
-  {path: 'userformation' , component: UserformtionComponent}
+    {path : 'videoDkika', component: AddvideoComponent},
+    {path: 'formationlist', component: FormationListComponent},
+    {path: 'userformation' , component: UserformtionComponent}
 ];

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {formation} from '../../../Models/formation';
+import {formation} from '../../../_service/Models/formation';
 import {Observable} from 'rxjs';
-import { FormationRequest} from '../../../Models/FormationRequest';
+import { FormationRequest} from '../../../_service/Models/FormationRequest';
 const API_URL = 'http://localhost:9098/admin/formation/';
 @Injectable({
   providedIn: 'root'

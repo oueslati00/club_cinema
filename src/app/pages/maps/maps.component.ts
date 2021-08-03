@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {SimpleuserService} from '../../layouts/admin-layout/_service/simpleuser.service';
-import {simpleuser} from '../../Models/User';
+import {simpleuser} from '../../_service/Models/User';
 import {ok} from 'assert';
 @Component({
   selector: 'app-maps',

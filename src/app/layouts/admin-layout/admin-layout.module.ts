@@ -17,7 +17,7 @@ import {AddformationComponent} from '../../pages/addformation/addformation.compo
 import {FormationListComponent} from '../../pages/formation-list/formation-list.component';
 import {UserformtionComponent} from '../../pages/userformtion/userformtion.component';
 // import { ToastrModule } from 'ngx-toastr';
-
+import { ModalModule } from 'ngx-bootstrap/modal';
 @NgModule({
     imports: [
         CommonModule,
@@ -26,7 +26,8 @@ import {UserformtionComponent} from '../../pages/userformtion/userformtion.compo
         HttpClientModule,
         NgbModule,
         ClipboardModule,
-        ComponentsModule
+        ComponentsModule,
+       ModalModule
     ],
   declarations: [
     DashboardComponent,
@@ -37,7 +38,8 @@ import {UserformtionComponent} from '../../pages/userformtion/userformtion.compo
     AddformationComponent,
     FormationListComponent,
     UserformtionComponent
-  ]
+  ],
+
 })
 
 export class AdminLayoutModule {}

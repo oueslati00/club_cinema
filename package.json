@@ -28,6 +28,7 @@
     "clipboard": "2.0.6",
     "core-js": "3.6.5",
     "jarallax": "^1.12.7",
+    "mdb-angular-ui-kit": "^1.0.0-beta7",
     "ngx-bootstrap": "^6.2.0",
     "ngx-clipboard": "13.0.1",
     "ngx-file-drop": "^11.1.0",

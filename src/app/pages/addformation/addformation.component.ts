@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
-import {chapter, formation} from '../../Models/formation';
+import {chapter, formation} from '../../_service/Models/formation';
 import {FormationService} from '../../layouts/admin-layout/_service/formation.service';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 import {AddcourComponent} from '../../components/addcour/addcour.component';
@@ -17,7 +17,7 @@ export class AddformationComponent implements OnInit {
   chapter: chapter;
   chap: chapter;
   bsModalRef: BsModalRef;
-  constructor(private formationService: FormationService,private modalService: BsModalService) {
+  constructor(private formationService: FormationService) {
    /* this.chapter = { id : 1, name: 'cdcdc' , cour : [] };
     this.formation = {id : 1, name: '' , FinalDate: '' , FirstDate: '' , chapter : []};*/
   this.formation = formationService.formation;
@@ -51,9 +51,9 @@ export class AddformationComponent implements OnInit {
   openModalWithComponent(id) {
     const initialState = {
       list: [
-        {"tag":'Count',"value":id}
+        {'tag': 'Count', 'value': id}
       ]
     };
-    this.bsModalRef = this.modalService.show(AddcourComponent, {initialState});
+   /* this.bsModalRef = this.modalService.show(AddcourComponent, {initialState});*/
   }
 }

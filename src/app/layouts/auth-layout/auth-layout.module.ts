@@ -9,19 +9,26 @@ import { LoginComponent } from '../../pages/login/login.component';
 import { RegisterComponent } from '../../pages/register/register.component';
 import {HomePageComponent} from '../../pages/home-page/home-page.component';
 import {RfxParallaxModule} from 'rfx-parallax';
+import {MdbCarouselModule} from 'mdb-angular-ui-kit/carousel';
+import {VgCoreModule} from 'videogular2/compiled/src/core/core';
+import {ForgetpasswordComponent} from '../../pages/forgetpassword/forgetpassword.component';
 @NgModule({
-    imports: [
-        CommonModule,
-        RouterModule.forChild(AuthLayoutRoutes),
-        FormsModule,
-        RfxParallaxModule,
-      ReactiveFormsModule
-        // NgbModule
-    ],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(AuthLayoutRoutes),
+    FormsModule,
+    RfxParallaxModule,
+    ReactiveFormsModule,
+    MdbCarouselModule,
+    VgCoreModule,
+    NgbModule
+    // NgbModule
+  ],
   declarations: [
     LoginComponent,
     RegisterComponent,
-    HomePageComponent
+    HomePageComponent,
+    ForgetpasswordComponent
   ]
 })
 export class AuthLayoutModule { }
