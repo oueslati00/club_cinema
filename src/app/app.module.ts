@@ -22,10 +22,14 @@ import {NgxFileDropModule} from 'ngx-file-drop';
 import {RfxParallaxModule} from 'rfx-parallax';
 import {VgCoreModule} from 'videogular2/compiled/src/core/core';
 import {authInterceptorProviders} from './layouts/auth-layout/_helpers/auth.interceptor';
-import { ForgetpasswordComponent } from './pages/forgetpassword/forgetpassword.component';
 import { SendmailComponent } from './pages/forgetpassword/sendmail/sendmail.component';
 import { SendcodeComponent } from './pages/forgetpassword/sendcode/sendcode.component';
 import { UpdatepasswordComponent } from './pages/forgetpassword/updatepassword/updatepassword.component';
+import {IvyCarouselModule} from 'angular-responsive-carousel';
+import {HomePageComponent} from './pages/home-page/home-page.component';
+import { ChapterListComponent } from './pages/displayformation/chapter-list/chapter-list.component';
+import { FormationDetailComponent } from './pages/displayformation/formation-detail/formation-detail.component';
+import { CommentListComponent } from './pages/displayformation/comment-list/comment-list.component';
 
 
 
@@ -42,6 +46,7 @@ import { UpdatepasswordComponent } from './pages/forgetpassword/updatepassword/u
     NgxFileDropModule,
     RfxParallaxModule,
     VgCoreModule,
+    IvyCarouselModule
 
 
   ],
@@ -56,7 +61,11 @@ import { UpdatepasswordComponent } from './pages/forgetpassword/updatepassword/u
     AddvideoComponent,
     SendmailComponent,
     SendcodeComponent,
-    UpdatepasswordComponent
+    UpdatepasswordComponent,
+    HomePageComponent,
+    ChapterListComponent,
+    FormationDetailComponent,
+    CommentListComponent
 
   ],
   providers: [authInterceptorProviders],

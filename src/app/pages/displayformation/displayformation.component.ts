@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FileSystemDirectoryEntry, FileSystemFileEntry, NgxFileDropEntry} from 'ngx-file-drop';
 import Chart from 'chart.js';
+import {FormationDisplay, UserService} from '../../_service/user.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-displayformation',
@@ -9,51 +11,15 @@ import Chart from 'chart.js';
 })
 export class DisplayformationComponent implements OnInit {
 
-  public files: NgxFileDropEntry[] = [];
-  public datasets: any;
-  public data: any;
-  public salesChart;
+constructor(private userService: UserService, private route: ActivatedRoute ) {
+}
+ id: number;
+formation: FormationDisplay;
 
 
   ngOnInit() {
-
-    this.datasets = [
-      [0, 20, 10, 30, 15, 40, 20, 60, 60],
-      [0, 20, 5, 25, 10, 30, 15, 40, 40]
-    ];
-    this.data = this.datasets[0];
-
-  }
-  public fileOver(event){
-    console.log(event);
-  }
-
-  public fileLeave(event){
-    console.log(event);
-  }
-
-  public updateOptions() {
-    this.salesChart.data.datasets[0].data = this.data;
-    this.salesChart.update();
-  }
-  public dropped(files: NgxFileDropEntry[]) {
-    this.files = files;
-    for (const droppedFile of files) {
-
-      // Is it a file?
-      if (droppedFile.fileEntry.isFile) {
-        const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
-        fileEntry.file((file: File) => {
-
-          // Here you can access the real file
-          console.log(droppedFile.relativePath, file);
-        });
-      } else {
-        // It was a directory (empty directories are added, otherwise only files)
-        const fileEntry = droppedFile.fileEntry as FileSystemDirectoryEntry;
-        console.log(droppedFile.relativePath, fileEntry);
-      }
-    }
+  this.id = this.route.snapshot.params['id'];
+  this.formation = this.userService.getFormationById(this.id);
   }
 
 }

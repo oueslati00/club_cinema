@@ -1,147 +1,150 @@
-<div class="header  py-7 py-lg-8" style="background-image: url(assets/img/theme/logoinfo.jpg)">
-  <div class="container" >
-    <div class="header-body text-center mb-7">
-      <div class="row justify-content-center">
-        <div class="col-lg-5 col-md-6">
-          <h1 class="text-white">Welcome to Dkika Cinema!</h1>
+<div class="container">
+  <carousel
+    [lightDOM]="true"
+  >
+    <div class="carousel-cell">
+      <img src="../../../assets/img/theme/team-1-800x800.jpg"  (click)="dislayvideo(1)">
+    </div>
+    <div class="carousel-cell">
+      <img src="../../../assets/img/theme/team-2-800x800.jpg">
+    </div>
+    <div class="carousel-cell " >
+      <img src="../../../assets/img/theme/team-2-800x800.jpg">
+    </div>
+    <div class="carousel-cell">
+      <img src="../../../assets/img/theme/team-2-800x800.jpg">
+    </div>
+    <div class="carousel-cell">
+      <img src="../../../assets/img/theme/team-3-800x800.jpg">
+    </div>
+    <div class="carousel-cell">
+      <img src="https://mdbootstrap.com/img/Photos/Slides/img%2810%29.jpg">
+    </div>
+    <div class="carousel-cell">
+      <img src="https://mdbootstrap.com/img/Photos/Slides/img%2810%29.jpg">
+    </div>
+  </carousel>
+</div>
+
+
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+
+<div class="container-fluid mt--7">
+  <div class="row">
+    <div class="col-xl-8 mb-5 mb-xl-0">
+      <div class="card bg-gradient-default shadow">
+        <div class="card-header bg-transparent">
+          <div class="row align-items-center">
+            <div class="col">
+              <h6 class="text-uppercase text-light ls-1 mb-1">video numero 1</h6>
+              <h2 class="text-white mb-0">video name</h2>
+              <br><br> <br>
+              <div class="container">
+                <vg-player style="width: 500px;height:300px">
+                  <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                    <source src="./assets/BigDataRevision.mp4" type="video/mp4">
+                  </video>
+                </vg-player>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <!-- Chart -->
+
+
+
+      </div>
+    </div>
+    <div class="col-xl-4">
+      <div class="card shadow">
+        <div class="card-header bg-transparent">
+          <div class="row align-items-center">
+            <div class="col">
+              <h6 class="text-uppercase text-muted ls-1 mb-1">Description</h6>
+              <h2 class="mb-0">Description part</h2>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <!-- Chart -->
+          <div class="chart">
+            add description herer!
+            <canvas id="chart-orders" class="chart-canvas">
+            </canvas>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="separator separator-bottom separator-skew zindex-100">
-    <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
-      <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
-    </svg>
-  </div>
-</div>
-<div class="container mt--8 pb-5">
-  <div class="row justify-content-center">
-    <div class="container">
-        <div class="card-header bg-transparent pb-5">
-          <mdb-carousel [controls]="true">
-            <mdb-carousel-item [interval]="10000000000">
-              <vg-player >
-                <video [vgMedia]="media" #media  preload="auto" controls class="d-block w-100">
-                  <source src="./assets/BigDataRevision.mp4" type="video/mp4">
-                </video>
-              </vg-player>
-            </mdb-carousel-item>
-
-            <mdb-carousel-item [interval]="10000000000" >
-              <vg-player >
-                <video [vgMedia]="media" #media  preload="auto" controls class="d-block w-100">
-                  <source src="./assets/BigDataRevision.mp4" type="video/mp4">
-                </video>
-              </vg-player>
-            </mdb-carousel-item>
-
-            <mdb-carousel-item [interval]="10000000000">
-              <vg-player >
-                <video [vgMedia]="media" #media  preload="auto" controls class="d-block w-100">
-                  <source src="./assets/BigDataRevision.mp4" type="video/mp4">
-                </video>
-              </vg-player>
-            </mdb-carousel-item>
-          </mdb-carousel>
-          </div>
-      </div>
-    </div>
-  </div>
-<br><br>
-<br><br>
-<div class="container ">
-  <div class="row">
-    <div class="col-md-5"> test 1</div>
-    <div class="col-md-7"> test 2</div>
-  </div>
 </div>
 <br><br>
 <br><br>
-<!-- Grid row -->
+
 <div class="container">
   <div class="row">
-    <div class="column-2 px-2 mb-r">
+    <div class="column-1 px-2 mb-r">
       <div class="card default-color-dark">
         <div class="view">
-          <img src="https://mdbootstrap.com/img/Photos/Slides/img%2810%29.jpg" class="card-img-top" alt="photo">
+          <img src="../../../assets/img/theme/team-1-800x800.jpg" class="card-img-top" alt="photo">
           <a href="#">
             <div class="mask rgba-white-slight"></div>
           </a>
         </div>
-
-        <!--Card content-->
         <div class="card-body text-center">
-          <!--Title-->
-          <h4 class="card-title white-text">Title of the news</h4>
-          <!--Text-->
-          <p class="card-text white-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
-            aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-            Nemo enim ipsam voluptatem quia voluptas.</p>
-          <a href="#" class="btn btn-outline-white btn-md">Button</a>
+          <h4 class="card-title white-text">Title of the Formateur</h4>
+          <p class="card-text white-text">formation description</p>
         </div>
-
       </div>
-      <!--/.Card-->
-
     </div>
-    <!-- Grid column -->
-
-    <!-- Grid column -->
-    <div class="column-1 px-2 mb-r">
-
-      <!--Card-->
+    <div class="column-2 px-2 mb-r">
       <div class="card primary-color-dark">
-
-        <!--Card image-->
         <div class="view">
-          <img src="https://mdbootstrap.com/img/Photos/Slides/img%2811%29.jpg" class="card-img-top" alt="photo">
+          <img src="../../../assets/img/theme/team-1-800x800.jpg" class="card-img-top" alt="photo">
           <a href="#">
             <div class="mask rgba-white-slight"></div>
           </a>
         </div>
-
-        <!--Card content-->
         <div class="card-body text-center">
-          <!--Title-->
-          <h4 class="card-title white-text">Title of the news</h4>
-          <!--Text-->
-          <p class="card-text white-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
-            aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-            Nemo enim ipsam voluptatem quia voluptas.</p>
-          <a href="#" class="btn btn-outline-white btn-md">Button</a>
+          <h4 class="card-title white-text">Title of the formation</h4>
+          <p class="card-text white-text">formation description</p>
         </div>
-
       </div>
-      <!--/.Card-->
-
     </div>
-    <!-- Grid column -->
-
-    <!-- Grid column -->
     <div class="column-1 px-2">
-
-      <!--Card-->
       <div class="card warning-color-dark">
-
-        <!--Card image-->
         <div class="view">
-          <img src="https://mdbootstrap.com/img/Photos/Slides/img%2812%29.jpg" class="card-img-top" alt="photo">
+          <img src="../../../assets/img/theme/team-1-800x800.jpg" class="card-img-top" alt="photo">
           <a href="#">
             <div class="mask rgba-white-slight"></div>
           </a>
         </div>
-
-
         <div class="card-body text-center">
-
-          <h4 class="card-title white-text">Title of the news</h4>
-          <p class="card-text white-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
-            aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-            Nemo enim ipsam voluptatem quia voluptas.</p>
-          <a href="#" class="btn btn-outline-white btn-md">Button</a>
+          <h4 class="card-title white-text">Title of the Formation</h4>
+          <p class="card-text white-text">description of the formation .</p>
+        </div>
+      </div>
+    </div>
+    <div class="column-1 px-2">
+      <div class="card warning-color-dark">
+        <div class="view">
+          <img src="../../../assets/img/theme/team-1-800x800.jpg" class="card-img-top" alt="photo">
+          <a href="#">
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+        <div class="card-body text-center">
+          <h4 class="card-title white-text">Title of the Formation</h4>
+          <p class="card-text white-text">description of the formation .</p>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 

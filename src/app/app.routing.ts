@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import {UserLayoutComponent} from './layouts/user-layout/user-layout.component';
+import {HomePageComponent} from './pages/home-page/home-page.component';
 
 const routes: Routes = [
    {
@@ -42,6 +43,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
+  {
+    path : 'homePage',
+    component : HomePageComponent
+  }
 ];
 
 @NgModule({

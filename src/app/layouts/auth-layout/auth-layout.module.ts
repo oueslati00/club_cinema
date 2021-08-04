@@ -12,6 +12,8 @@ import {RfxParallaxModule} from 'rfx-parallax';
 import {MdbCarouselModule} from 'mdb-angular-ui-kit/carousel';
 import {VgCoreModule} from 'videogular2/compiled/src/core/core';
 import {ForgetpasswordComponent} from '../../pages/forgetpassword/forgetpassword.component';
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -22,12 +24,13 @@ import {ForgetpasswordComponent} from '../../pages/forgetpassword/forgetpassword
     MdbCarouselModule,
     VgCoreModule,
     NgbModule
+
+
     // NgbModule
   ],
   declarations: [
     LoginComponent,
     RegisterComponent,
-    HomePageComponent,
     ForgetpasswordComponent
   ]
 })

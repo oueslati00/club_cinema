@@ -10,7 +10,7 @@ import {UserInfoComponent} from '../../pages/user-info/user-info.component';
 
 export const UserLayoutRoutes: Routes = [
   { path: 'userInfo',          component: UserInfoComponent },
-  { path: 'formation_display',       component: DisplayformationComponent },
+  { path: 'formation_display/:Id',       component: DisplayformationComponent },
   {path : 'listvideo', component: DisplaylistvideoComponent}
-]
+];
 
