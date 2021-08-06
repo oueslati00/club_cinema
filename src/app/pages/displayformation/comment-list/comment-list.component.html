@@ -1,36 +1,36 @@
-<div class="container">
+<div class="container " >
   <div class="card-body">
-    <form>
-
+    <h6 class="heading-small text-muted mb-4">Ajouter votre commentaire</h6>
+    <div class="pl-lg-4">
+      <div class="form-group">
+        <label>About Me</label>
+        <textarea rows="4"  #titleInput class="form-control form-control-alternative" placeholder="the comment should be more thant 10 character"></textarea>
+      </div>
+    </div>
+    <div class="pl-lg-4"></div>
+    <button class="btn btn-danger" type="submit" (click) = 'addTodo(titleInput.value)'>Add</button>
       <hr class="my-4" />
       <!-- Description -->
-      <h6 class="heading-small text-muted mb-4">Your comment</h6>
+      <h6 class="heading-small text-muted mb-4"> comment list</h6>
       <div class="pl-lg-4">
-        <div class="form-group">
-          <label>Name of cuurent user </label>
-          <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about you ..."></textarea>
+        <div class="form-group" *ngFor="let com of comment ">
+          <div class="row" >
+            <div class="col-md-1">
+              <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexander Smith">
+                <img mat-card-avatar  alt="Image placeholder" src="assets/img/theme/team-1-800x800.jpg" class="rounded-circle">
+              </a>
+            </div>
+            <div class="col-md-7">
+              <mat-card-title style="margin-top: 5px" > {{com.userName}}</mat-card-title>
+            </div>
+            <div class="col-md-3">
+              <mat-card-subtitle>{{com.localDate}}</mat-card-subtitle>
+            </div>
+          </div>
+             <mat-card >{{com.description}}</mat-card>
+          <hr class="my-4" />
         </div>
       </div>
-      <div class="pl-lg-4">
-        <div class="form-group">
-          <label>Name of cuurent user </label>
-          <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about you ..."></textarea>
-        </div>
-      </div>
-      <div class="pl-lg-4">
-        <div class="form-group">
-          <label>Name of cuurent user </label>
-          <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about you ..."></textarea>
-        </div>
-      </div>
-      <div class="pl-lg-4">
-        <div class="form-group">
-          <label>Name of cuurent user </label>
-          <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about you ..."></textarea>
-        </div>
-      </div>
-    </form>
-    <a href="#!" class="btn btn-info">Add Comment</a>
   </div>
 </div>
 

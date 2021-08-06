@@ -30,6 +30,10 @@ import {HomePageComponent} from './pages/home-page/home-page.component';
 import { ChapterListComponent } from './pages/displayformation/chapter-list/chapter-list.component';
 import { FormationDetailComponent } from './pages/displayformation/formation-detail/formation-detail.component';
 import { CommentListComponent } from './pages/displayformation/comment-list/comment-list.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatListModule} from '@angular/material/list';
+import {MatCardModule} from '@angular/material/card';
+import { FormationListComponent } from './pages/displayformation/formation-list/formation-list.component';
 
 
 
@@ -46,9 +50,10 @@ import { CommentListComponent } from './pages/displayformation/comment-list/comm
     NgxFileDropModule,
     RfxParallaxModule,
     VgCoreModule,
-    IvyCarouselModule
-
-
+    IvyCarouselModule,
+    MatExpansionModule,
+    MatListModule,
+    MatCardModule
   ],
   declarations: [
     AppComponent,
@@ -65,7 +70,9 @@ import { CommentListComponent } from './pages/displayformation/comment-list/comm
     HomePageComponent,
     ChapterListComponent,
     FormationDetailComponent,
-    CommentListComponent
+    CommentListComponent,
+    FormationListComponent,
+
 
   ],
   providers: [authInterceptorProviders],

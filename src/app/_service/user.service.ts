@@ -1,51 +1,81 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable} from 'rxjs';
+const DISPLAY_FORMATION_API = 'http://localhost:9097/api/user/formation/';
 
+const COMPTE_RENDU = '/api/user/compteRendu';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+const hhtpOptionsForStream = {
+  headers : new HttpHeaders({ 'Content-Type': 'video/mp4'})
+}
 export class FormationInformation {
-  Id: number ;
+  id: number ;
   formationName: string ;
   formateurName: string ;
   dateToStart: string;
+  constructor(Id: number, formationName: string, formateurName: string , dateToStart: string) {
+    this.id = Id;
+    this.dateToStart = dateToStart;
+    this.formationName = formationName;
+    this.formateurName = formateurName;
+  }
 
 }
-export class FormationDisplay {
+export interface FormationDisplay {
   id: number ;
   formateurId: number ;
   name: string;
-  FirstDate: string;
-  FinalDate: string;
+  firstDate: string;
+  finalDate: string;
   description: string;
-  Chapter: Chapter[];
+  chapter: Chapter[];
 }
-export class Chapter {
+export interface Chapter {
   id: number;
   name: string;
   cours: Cours[];
 }
-export class Cours {
+export interface Cours {
   id: number;
   name: string;
   description: string;
 }
 const listFormation: FormationInformation[] = [
-  {Id : 1 , formateurName: 'brahim1' , formationName : 'test1' , dateToStart: '11/12/1991'},
-  {Id : 3 , formateurName: 'brahim3' , formationName : 'test3' , dateToStart: '11/12/1993'},
-  {Id : 4 , formateurName: 'brahim4' , formationName : 'test4' , dateToStart: '11/12/1994'},
-  {Id : 5 , formateurName: 'brahim5' , formationName : 'test5' , dateToStart: '11/12/1995'},
+  {id : 1 , formateurName: 'brahim1' , formationName : 'test1' , dateToStart: '11/12/1991'},
+  {id : 3 , formateurName: 'brahim3' , formationName : 'test3' , dateToStart: '11/12/1993'},
+  {id : 4 , formateurName: 'brahim4' , formationName : 'test4' , dateToStart: '11/12/1994'},
+  {id : 5 , formateurName: 'brahim5' , formationName : 'test5' , dateToStart: '11/12/1995'},
 ];
-
 const listF: FormationDisplay = {
   id: 3,
   formateurId: null,
   name: 'brahim',
-  FirstDate : '2021-06-30',
-  FinalDate: '2021-06-01',
+  firstDate : '2021-06-30',
+  finalDate: '2021-06-01',
   description: 'introductfhfghion of the first part ',
-  Chapter: [
+  chapter: [
     {
       id: 54,
       name: 'chgfgdter1',
       cours: [
+        {
+          id: 93,
+          name: 'tivsv',
+          description: null
+        },
+        {
+          id: 93,
+          name: 'tivsv',
+          description: null
+        },
+        {
+          id: 93,
+          name: 'tivsv',
+          description: null
+        },
         {
           id: 93,
           name: 'tivsv',
@@ -59,7 +89,22 @@ const listF: FormationDisplay = {
       cours: [
         {
           'id': 94,
-          'name': 'o ',
+          'name': 'odsq ',
+          'description': null
+        },
+        {
+          'id': 94,
+          'name': 'odsq ',
+          'description': null
+        },
+        {
+          'id': 94,
+          'name': 'odsq ',
+          'description': null
+        },
+        {
+          'id': 94,
+          'name': 'odsq ',
           'description': null
         }
       ]
@@ -70,13 +115,22 @@ const listF: FormationDisplay = {
   providedIn: 'root'
 })
 export class UserService {
+  formation: FormationDisplay;
 
   constructor(private http: HttpClient) { }
-  getformationList(): FormationInformation[] {
-    return listFormation;
+  getformationList(): Observable<FormationInformation[]> {
+    return this.http.get<FormationInformation[]>(DISPLAY_FORMATION_API + 'list' );
   }
-  getFormationById(id: number): FormationDisplay {
-    return listF;
+  getFormationById(id: number): Observable<FormationDisplay> {
+    return this.http.get<FormationDisplay>(DISPLAY_FORMATION_API + id);
+
+  }
+  setFormation(formation: FormationDisplay) {
+    this.formation = formation;
+  }
+  // stream a video
+  streamVideoFormation(idcour: number): Observable<any> {
+    return this.http.get<any>('http://localhost:9097/api/user/formation/byterange/186', {"responseType" : 'blob'});
 
   }
 }

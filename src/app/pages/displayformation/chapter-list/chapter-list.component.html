@@ -1,44 +1,35 @@
-
+<div class="container">
   <div class="card shadow">
     <div class="card-header bg-transparent">
       <div class="row align-items-center">
         <div class="col">
-          <h6 class="text-uppercase text-muted ls-1 mb-1">Description</h6>
-          <h2 class="mb-0">Description part</h2>
+          <h2 class="mb-0">List of chapter</h2>
         </div>
       </div>
     </div>
-    <div class="card-body">
+    <div class="container card-body">
       <!-- Chart -->
-      <div class="chart">
-        <mat-accordion>
-          <mat-expansion-panel hideToggle>
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                This is the expansion title
-              </mat-panel-title>
-              <mat-panel-description>
-                This is a summary of the content
-              </mat-panel-description>
-            </mat-expansion-panel-header>
-            <p>This is the primary content of the panel.</p>
-          </mat-expansion-panel>
+        <mat-accordion *ngFor="let forma of formation.chapter">
           <mat-expansion-panel (opened)="panelOpenState = true"
                                (closed)="panelOpenState = false">
             <mat-expansion-panel-header>
               <mat-panel-title>
-                Self aware panel
+                {{forma.id}} chapter id
               </mat-panel-title>
               <mat-panel-description>
-                Currently I am {{panelOpenState ? 'open' : 'closed'}}
+                {{forma.name}} chapter name
               </mat-panel-description>
             </mat-expansion-panel-header>
-            <p>I'm visible because I am open</p>
+            <mat-list *ngFor="let co of forma.cours ">
+              <mat-list-item (click)="courselected(co)" style="cursor: pointer">{{co.name}}</mat-list-item>
+              <mat-divider></mat-divider>
+            </mat-list>
           </mat-expansion-panel>
+          <br>
         </mat-accordion>
-        <canvas id="chart-orders" class="chart-canvas">
-        </canvas>
-      </div>
+
     </div>
   </div>
+</div>
+
 

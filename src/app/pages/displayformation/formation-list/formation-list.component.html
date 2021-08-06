@@ -1,0 +1,26 @@
+<br>
+<br>
+<br>
+<br>
+<h1>list des formations disponible</h1>
+<div class="container">
+  <div class="row" >
+    <div class="col-md-3" *ngFor="let formation of list">
+      <div class="card default-color-dark">
+        <div class="view">
+          <img src="../../../assets/img/theme/team-1-800x800.jpg" class="card-img-top" alt="photo">
+          <a [routerLink]="['../formation_display', formation.id]">
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+        <div class="card-body text-center">
+          <h4 class="card-title white-text">{{formation.formationName}}</h4>
+          <p class="card-text white-text">{{formation.formateurName}}</p>
+          <p class="card-text white-text">{{formation.dateToStart}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+</div>

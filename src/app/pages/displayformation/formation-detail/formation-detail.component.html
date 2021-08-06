@@ -2,23 +2,34 @@
     <div class="card-header bg-transparent">
       <div class="row align-items-center">
         <div class="col">
-          <h6 class="text-uppercase text-light ls-1 mb-1">video numero 1</h6>
-          <h2 class="text-white mb-0">video name</h2>
-          <br><br> <br>
+          <h2 class="text-white mb-0">{{cours.name}}</h2>
           <div class="container">
-            <vg-player style="width: 500px;height:300px">
-              <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
-                <source src="./assets/BigDataRevision.mp4" type="video/mp4">
-              </video>
-            </vg-player>
+            <video [src]="video" width="400px" height="400px" controls="">
+            </video>
+          </div>
+
+        </div>
+      <mat-card  class="container" style="background-color: #ffffff; margin-top: 10px">{{cours.description}} </mat-card>
+      <mat-card class="container" style="background-color: #ffffff; margin-top: 10px">
+        <div class="row">
+          <div class="col-md-7">
+            add compte rendu here
+          </div>
+          <div class="col-3">
+            <ngx-file-drop  (onFileDrop)="dropped($event)">
+              <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+
+                <button type="button" class="btn btn-danger" (click)="openFileSelector()">Browse</button>
+              </ng-template>
+            </ngx-file-drop>
           </div>
         </div>
-
+      </mat-card>
       </div>
     </div>
 </div>
 <div class="card-body">
-    <!-- Chart -->
+  <!-- Chart -->
 
 
 
