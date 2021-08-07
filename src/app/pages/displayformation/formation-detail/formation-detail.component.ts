@@ -1,8 +1,7 @@
-import {Component, ElementRef, Input, OnInit, Sanitizer, ViewChild} from '@angular/core';
+import {Component, ElementRef, Input, OnChanges, OnInit, Sanitizer, SimpleChanges, ViewChild} from '@angular/core';
 import {FileSystemDirectoryEntry, FileSystemFileEntry, NgxFileDropEntry} from 'ngx-file-drop';
 import {Cours, UserService} from '../../../_service/user.service';
 import {DomSanitizer} from '@angular/platform-browser';
-import {CompteRenduService} from '../../../_service/compte-rendu.service';
 
 
 @Component({
@@ -10,12 +9,12 @@ import {CompteRenduService} from '../../../_service/compte-rendu.service';
   templateUrl: './formation-detail.component.html',
   styleUrls: ['./formation-detail.component.css']
 })
-export class FormationDetailComponent implements OnInit {
+export class FormationDetailComponent implements OnInit , OnChanges {
   public files: NgxFileDropEntry[] = [];
   file: File;
   @Input() cours: Cours;
   video: any;
-  constructor(private userservice: UserService, private sanitizer: DomSanitizer, private compteRenduService: CompteRenduService) { }
+  constructor(private userservice: UserService, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
   this.getvideo(this.cours.id);
@@ -27,6 +26,7 @@ export class FormationDetailComponent implements OnInit {
       data => {
         const url = URL.createObjectURL(data);
         this.video =  this.sanitizer.bypassSecurityTrustResourceUrl(url);
+        console.log('video was loaded ');
       }, error => {
         console.log(error);
       }
@@ -45,7 +45,7 @@ export class FormationDetailComponent implements OnInit {
           // Here you can access the real file
           console.log( file);
           this.file = file;
-          this.compteRenduService.sendcompteRendu(file, 185, 10).subscribe(
+          this.userservice.sendcompteRendu(file, 185, 10).subscribe(
             data => {
               console.log(data);
             }
@@ -58,5 +58,10 @@ export class FormationDetailComponent implements OnInit {
       }
 
     }
+  }
+
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.ngOnInit();
   }
 }

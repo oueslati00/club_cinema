@@ -34,6 +34,12 @@
             {{menuItem.title}}
           </a>
         </li>
+        <li class="{{logout.class}} nav-item" (click)="logoutfunction()">
+          <a routerLinkActive="active" [routerLink]="[logout.path]" class="nav-link">
+            <i class="ni {{logout.icon}}"></i>
+            {{logout.title}}
+          </a>
+        </li>
       </ul>
       <!-- Divider -->
       <hr class="my-3">

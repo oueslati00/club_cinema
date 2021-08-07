@@ -26,13 +26,14 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.authService.login(this.form).subscribe(
       data => {
         console.log(this.form);
-        this.tokenStorage.saveToken(data.accessToken);
+        console.log(data);
+        this.tokenStorage.saveToken(data.token);
         this.tokenStorage.saveUser(data);
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
-        this.reloadPage();
+       // this.reloadPage();
       },
       err => {
         this.errorMessage = err.error.message;

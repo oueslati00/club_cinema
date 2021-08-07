@@ -1,21 +1,21 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Comment, CommentRequest, CommentService} from '../../../_service/comment.service';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {TokenStorageService} from '../../../layouts/auth-layout/_service/token-storage.service';
+import {UserService, Comment} from '../../../_service/user.service';
+
 
 @Component({
   selector: 'app-comment-list',
   templateUrl: './comment-list.component.html',
   styleUrls: ['./comment-list.component.css']
 })
-export class CommentListComponent implements OnInit {
+export class CommentListComponent implements OnInit , OnChanges {
   @Input() idcour: number;
   comment: Comment[];
   error = '';
-  co: CommentRequest;
-  constructor(private commentService: CommentService , private token: TokenStorageService) { }
+  constructor(private userService: UserService , private token: TokenStorageService) { }
 
   ngOnInit(): void {
-    this.commentService.getcommentByCours(this.idcour).subscribe(
+    this.userService.getcommentByCours(this.idcour).subscribe(
       data => {
         this.comment = data;
       }, err => {
@@ -32,7 +32,7 @@ export class CommentListComponent implements OnInit {
     // add this comment to user database
     var username = this.token.getUser().username;
 
-    this.commentService.addComment(username, this.idcour , value).subscribe(
+    this.userService.addComment(username, this.idcour , value).subscribe(
       data => {
        this.ngOnInit();
       }, error1 => {
@@ -40,5 +40,9 @@ export class CommentListComponent implements OnInit {
       }
     );
     // receive request and add it list
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.ngOnInit();
   }
 }

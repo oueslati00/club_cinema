@@ -12,7 +12,7 @@ export class DisplayformationComponent implements OnInit {
   formation: FormationDisplay;
   error = '';
   idcour = 1;
-  cours : Cours;
+  cours: Cours;
 constructor(private userService: UserService, private route: ActivatedRoute ) {
 
 }
@@ -25,7 +25,9 @@ constructor(private userService: UserService, private route: ActivatedRoute ) {
       this.formation = data;
       this.userService.setFormation(this.formation);
       console.log(this.formation);
-      this.cours = { id : 1 , description : 'test' , name : 'testname'};
+      this.cours =  this.formation.chapter[0].cours[0];
+      // TODO:add duration method to API
+      this.userService.getduration(this.formation.id);
       }, error => {
      this.error = error;
      console.log(error);
