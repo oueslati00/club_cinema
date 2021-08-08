@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { FormateurLayoutComponent } from './layouts/formateur-layout/formateur-layout.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -34,6 +35,11 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
 import { FormationListComponent } from './pages/displayformation/formation-list/formation-list.component';
+
+import { DisplayMyformationComponent } from './pages/display-myformation/display-myformation.component';
+import { AddChapterListComponent } from './pages/addformation/add-chapter-list/add-chapter-list.component';
+import { AddDetailCoursComponent } from './pages/addformation/add-detail-cours/add-detail-cours.component';
+import {AddformationComponent} from './pages/addformation/addformation.component';
 
 
 
@@ -72,10 +78,19 @@ import { FormationListComponent } from './pages/displayformation/formation-list/
     FormationDetailComponent,
     CommentListComponent,
     FormationListComponent,
+    FormateurLayoutComponent,
+    DisplayMyformationComponent,
+    AddChapterListComponent,
+    AddDetailCoursComponent,
+    AddformationComponent
 
 
   ],
   providers: [authInterceptorProviders],
+  exports: [
+    AddDetailCoursComponent,
+    AddChapterListComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

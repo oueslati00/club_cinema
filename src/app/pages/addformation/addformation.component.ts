@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {NgForm} from '@angular/forms';
-import {chapter, formation} from '../../_service/Models/formation';
-import {FormationService} from '../../layouts/admin-layout/_service/formation.service';
-import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
-import {AddcourComponent} from '../../components/addcour/addcour.component';
+import {FileSystemDirectoryEntry, FileSystemFileEntry, NgxFileDropEntry} from 'ngx-file-drop';
+import {CoursSend, FormateurService, FormationSend} from '../../_service/formateur.service';
+import {Cours} from '../../_service/user.service';
 
 
 
@@ -13,47 +11,33 @@ import {AddcourComponent} from '../../components/addcour/addcour.component';
   styleUrls: ['./addformation.component.css']
 })
 export class AddformationComponent implements OnInit {
-  formation: formation;
-  chapter: chapter;
-  chap: chapter;
-  bsModalRef: BsModalRef;
-  constructor(private formationService: FormationService) {
-   /* this.chapter = { id : 1, name: 'cdcdc' , cour : [] };
-    this.formation = {id : 1, name: '' , FinalDate: '' , FirstDate: '' , chapter : []};*/
-  this.formation = formationService.formation;
+  forma: FormationSend;
+  cours : CoursSend;
+  panelOpenState: boolean;
+  public files: NgxFileDropEntry[] = [];
+  file: File;
+  constructor(private formation: FormateurService) {
+
   }
 
   ngOnInit(): void {
+    console.log('ng on int of add formation component ');
+   this.forma = this.formation.createEmptyFormation();
+    this.cours = this.forma.chapter[0].cour[0];
+   console.log(this.forma);
   }
+  ValidateFormation() {
+     // TODO : add this final request to database
+    console.log(this.forma);
+    this.formation.sendformation(this.forma).subscribe(
+      data => {
 
-
-  onSubmitformateur(f: NgForm) {
-    console.log(f.value);
+      }
+    )
   }
-
-  onSubmitformation(f: NgForm) {
-    console.log(f);
-  }
-
-  removebyId(id: number) {
-    console.log(id);
-    console.log(this.formation.chapter);
-    this.formation.chapter = this.formation.chapter.filter(x => x.id !== id);
-    console.log(this.formation.chapter);
-  }
-
-  addlesson() {
-     this.chap = new chapter(this.formation.chapter.length + 1) ;
-    console.log(this.chap);
-    this.formation.chapter.push(this.chap);
-  }
-
-  openModalWithComponent(id) {
-    const initialState = {
-      list: [
-        {'tag': 'Count', 'value': id}
-      ]
-    };
-   /* this.bsModalRef = this.modalService.show(AddcourComponent, {initialState});*/
+  ReciveEvent($event: CoursSend) {
+    console.log('recive event was executed');
+    console.log($event);
+    this.cours = $event;
   }
 }

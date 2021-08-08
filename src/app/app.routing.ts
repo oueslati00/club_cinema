@@ -7,6 +7,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import {UserLayoutComponent} from './layouts/user-layout/user-layout.component';
 import {HomePageComponent} from './pages/home-page/home-page.component';
+import {FormateurLayoutComponent} from './layouts/formateur-layout/formateur-layout.component';
 
 const routes: Routes = [
    {
@@ -35,6 +36,16 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: './layouts/user-layout/user-layout.module#UserLayoutModule'
+      }
+    ]
+  },
+  {
+    path: 'formateur',
+    component:  FormateurLayoutComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: './layouts/formateur-layout/formateur-layout.module#FormateurLayoutModule'
       }
     ]
   },

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -13,29 +14,29 @@ import { UserProfileComponent } from '../../pages/user-profile/user-profile.comp
 import { TablesComponent } from '../../pages/tables/tables.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {ComponentsModule} from '../../components/components.module';
-import {AddformationComponent} from '../../pages/addformation/addformation.component';
 import {FormationListComponent} from '../../pages/formation-list/formation-list.component';
 import {UserformtionComponent} from '../../pages/userformtion/userformtion.component';
 // import { ToastrModule } from 'ngx-toastr';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import {AppModule} from '../../app.module';
 @NgModule({
-    imports: [
-        CommonModule,
-        RouterModule.forChild(AdminLayoutRoutes),
-        FormsModule,
-        HttpClientModule,
-        NgbModule,
-        ClipboardModule,
-        ComponentsModule,
-       ModalModule
-    ],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(AdminLayoutRoutes),
+    FormsModule,
+    HttpClientModule,
+    NgbModule,
+    ClipboardModule,
+    ComponentsModule,
+    ModalModule,
+    AppModule
+  ],
   declarations: [
     DashboardComponent,
     UserProfileComponent,
     TablesComponent,
     IconsComponent,
     MapsComponent,
-    AddformationComponent,
     FormationListComponent,
     UserformtionComponent
   ],

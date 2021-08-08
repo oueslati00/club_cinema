@@ -11,6 +11,7 @@ import {VgCoreModule} from 'videogular2/compiled/src/core/core';
 import {NgxFileDropModule} from 'ngx-file-drop';
 import { SidbaruserComponent } from './sidbaruser/sidbaruser.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { SidebarFormateurComponent } from './sidebar-formateur/sidebar-formateur.component';
 
 
 
@@ -30,7 +31,8 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     ModalBasicComponent,
     AddcourComponent,
     SidbaruserComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    SidebarFormateurComponent
   ],
     exports: [
         FooterComponent,
@@ -38,7 +40,8 @@ import { ErrorPageComponent } from './error-page/error-page.component';
         SidebarComponent,
         ModalBasicComponent,
         AddcourComponent,
-        SidbaruserComponent
+        SidbaruserComponent,
+        SidebarFormateurComponent
     ]
 })
 export class ComponentsModule { }

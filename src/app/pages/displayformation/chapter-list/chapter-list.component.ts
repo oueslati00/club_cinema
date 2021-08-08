@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {Cours, FormationDisplay} from '../../../_service/user.service';
 
 @Component({
@@ -28,4 +28,6 @@ export class ChapterListComponent implements OnInit {
   sendEvent(id) {
     this.sendRequest.emit(id);
   }
+
+
 }

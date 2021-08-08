@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="card shadow">
+    <div class="card-header bg-transparent">
+      <div class="row align-items-center">
+        <div class="col">
+          <h2 class="mb-0">List of chapter  <button class="btn btn-danger " (click)="addEmptyChapter()">+</button></h2>
+
+        </div>
+      </div>
+    </div>
+    <div class="container card-body">
+      <!-- Chart -->
+      <div *ngIf="formation.chapter !== null">
+        <mat-accordion *ngFor="let chapter of formation.chapter ">
+          <div class="row">
+            <div class="col-10">
+              <mat-expansion-panel (opened)="panelOpenState = true"
+                                   (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                  <mat-panel-description>
+                    <div class="form-group">
+                      <input type="text"  class="form-control form-control-alternative" placeholder="chapter name "  [(ngModel)]="chapter.name" >
+                    </div>
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div *ngIf="chapter.cour !== null">
+                  <mat-list *ngFor="let cour of chapter.cour">
+                    <mat-list-item style="cursor: pointer" (click)="courselected(cour)">{{cour.name}}</mat-list-item>
+                    <mat-divider> </mat-divider>
+                  </mat-list>
+                </div>
+
+              </mat-expansion-panel>
+              <br>
+            </div>
+            <div class="col-1">
+              <div ngbDropdown placement="bottom-right">
+                <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
+                  <i class="fas fa-ellipsis-v"></i>
+                </a>
+                <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+                  <a class="dropdown-item" href="javascript:void(0)" (click)="addEmptyCour(chapter)" >add cour</a>
+                  <a class="dropdown-item" href="javascript:void(0)" (click)="removeChapter(chapter)">remove this chapter</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-accordion>
+      </div>
+
+    </div>
+  </div>
+
+</div>

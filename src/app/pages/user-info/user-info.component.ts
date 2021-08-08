@@ -13,6 +13,7 @@ export class UserInfoComponent implements OnInit {
   constructor(private token: TokenStorageService, private userService: UserService) { }
 
   ngOnInit(): void {
+    console.log(' this componenet was executed')
     this.id = this.token.getUser().id;
     console.log(this.id);
     this.userService.getUserInformation(this.id).subscribe(
