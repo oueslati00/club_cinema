@@ -26,7 +26,7 @@ export class AddChapterListComponent implements OnInit {
     this.formation.chapter = this.formation.chapter.filter(c => c !== chapter);
   }
   addEmptyChapter() {
-    var cour : CoursSend = new CoursSend('new cours','',null,null);
+    var cour : CoursSend = new CoursSend('new cours', '',null,null);
     var chapter = new ChapterSend('', [] , null);
     chapter.cour.push(cour);
     console.log('add empty chapter ws executed ');

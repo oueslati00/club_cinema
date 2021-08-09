@@ -34,7 +34,7 @@ export interface FormationDisplay {
 export interface Chapter {
   id: number;
   name: string;
-  cours: Cours[];
+  cour: Cours[];
 }
 export interface Cours {
   id: number;

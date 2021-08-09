@@ -29,11 +29,7 @@ export class AddformationComponent implements OnInit {
   ValidateFormation() {
      // TODO : add this final request to database
     console.log(this.forma);
-    this.formation.sendformation(this.forma).subscribe(
-      data => {
-
-      }
-    )
+    this.formation.sendformation(this.forma);
   }
   ReciveEvent($event: CoursSend) {
     console.log('recive event was executed');

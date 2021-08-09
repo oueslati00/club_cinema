@@ -1,163 +1,56 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {chapter} from './Models/formation';
-const FORMATION_ADD_API = 'http://localhost:9097/api/formateur/formation';
-
+const FORMATEUR_ADD_FORMATION_API = 'http://localhost:9097/api/formateur/formation';
+const FORMATEUR_ADD_VIDEO_API = 'http://localhost:9097/api/formateur/formation/addVideo';
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 export class FormationSend {
-  private _id: number;
-  private _formateurId: number;
-  private _name: string;
-  private _chapter: ChapterSend[];
-  private _firstDate: Date;
-  private _finalDate: Date;
-  private _description: string;
+  public id: number;
+  public formateurId: number;
+  public name: string;
+  public chapter: ChapterSend[];
+  public firstDate: Date;
+  public finalDate: Date;
+  public description: string;
+  public duration: number;
 
   constructor(formateurId: number, name: string, chapter: ChapterSend[],
               firstDate: Date, finalDate: Date, description: string, id: number) {
-    this._id = id;
-    this._formateurId = formateurId;
-    this._name = name;
-    this._chapter = chapter;
-    this._firstDate = firstDate;
-    this._finalDate = finalDate;
-    this._description = description;
+    this.id = id;
+    this.formateurId = formateurId;
+    this.name = name;
+    this.chapter = chapter;
+    this.firstDate = firstDate;
+    this.finalDate = finalDate;
+    this.description = description;
   }
 
-  get id(): number {
-    return this._id;
-  }
-
-  set id(value: number) {
-    this._id = value;
-  }
-
-  get formateurId(): number {
-    return this._formateurId;
-  }
-
-  set formateurId(value: number) {
-    this._formateurId = value;
-  }
-
-  get name(): string {
-    return this._name;
-  }
-
-  set name(value: string) {
-    this._name = value;
-  }
-
-  get chapter(): ChapterSend[] {
-    return this._chapter;
-  }
-
-  set chapter(value: ChapterSend[]) {
-    this._chapter = value;
-  }
-
-  get firstDate(): Date {
-    return this._firstDate;
-  }
-
-  set firstDate(value: Date) {
-    this._firstDate = value;
-  }
-
-  get finalDate(): Date {
-    return this._finalDate;
-  }
-
-  set finalDate(value: Date) {
-    this._finalDate = value;
-  }
-
-  get description(): string {
-    return this._description;
-  }
-
-  set description(value: string) {
-    this._description = value;
-  }
 }
 export class ChapterSend {
-  private _id: number;
- private _name: string;
- private _cour: CoursSend[];
+  public id: number;
+ public name: string;
+ public cour: CoursSend[];
 
   constructor(name: string, cour: CoursSend[], id: number) {
-    this._name = name;
-    this._cour = cour;
-    this._id = id;
-  }
-
-  get id(): number {
-    return this._id;
-  }
-
-  set id(value: number) {
-    this._id = value;
-  }
-
-  get name(): string {
-    return this._name;
-  }
-
-  set name(value: string) {
-    this._name = value;
-  }
-
-  get cour(): CoursSend[] {
-    return this._cour;
-  }
-
-  set cour(value: CoursSend[]) {
-    this._cour = value;
+    this.name = name;
+    this.cour = cour;
+    this.id = id;
   }
 }
 export class CoursSend {
-  private _name: string;
-  private _description: string;
-  private _file: File;
-  private _id: number;
-
+  public name: string;
+  public description: string;
+  public file: File;
+  public id: number;
+  public vid: number;
   constructor(name: string, description: string, file: File, id: number) {
-    this._name = name;
-    this._description = description;
-    this._file = file;
-    this._id = id;
-  }
-
-  get id(): number {
-    return this._id;
-  }
-
-  set id(value: number) {
-    this._id = value;
-  }
-
-  get name(): string {
-    return this._name;
-  }
-
-  set name(value: string) {
-    this._name = value;
-  }
-
-  get description(): string {
-    return this._description;
-  }
-
-  set description(value: string) {
-    this._description = value;
-  }
-
-  get file(): File {
-    return this._file;
-  }
-
-  set file(value: File) {
-    this._file = value;
+    this.name = name;
+    this.description = description;
+    this.file = file;
+    this.id = id;
   }
 }
 
@@ -169,16 +62,43 @@ export class FormateurService {
   formation: FormationSend;
   constructor(private http: HttpClient) { }
 
-  sendformation(formationSend: FormationSend): Observable<FormationSend> {
-    return this.http.post<FormationSend>(FORMATION_ADD_API, formationSend);
+  sendformation(formationSend: FormationSend): any {
+      for (let i = 0 ; i < formationSend.chapter.length ; i++) {
+           for (let j = 0 ; j < formationSend.chapter[i].cour.length ; j++){
+             console.log('add cour' + j + ' of chapter ' + i);
+             var formadata : any = new FormData();
+             formadata.append('file', formationSend.chapter[i].cour[j].file);
+             this.http.post<number>(FORMATEUR_ADD_VIDEO_API, formadata).subscribe(
+               data => {
+                 console.log(data);
+                 formationSend.chapter[i].cour[j].vid = data;
+               }, error => {
+                 console.log('error of video of cour' + j + ' of chapter ' + i);
+                 console.log(error);
+               }
+             );
+           }
+           console.log('the add of video was efected with sucess');
+        formationSend.formateurId = 33;
+           console.log(formationSend);
+           this.http.post<FormationSend>(FORMATEUR_ADD_FORMATION_API, formationSend, httpOptions).subscribe(
+             data => {
+               console.log(data);
+             }, error => {
+               console.log(error);
+             }
+           );
+      }
+
+
   }
 
   createEmptyFormation(): FormationSend {
-    var chapterListEmpty: ChapterSend[] = new Array();
-    var coursListEmpty : CoursSend[] = new Array();
-    var cours : CoursSend = new CoursSend('new cour',null,null,null);
+    let chapterListEmpty: ChapterSend[] = new Array();
+    let coursListEmpty: CoursSend[] = new Array();
+    let cours: CoursSend = new CoursSend('new cour', null, null, null);
     coursListEmpty.push(cours);
-    var chapter = new ChapterSend(null, coursListEmpty, null);
+    let chapter = new ChapterSend(null, coursListEmpty, null);
     chapterListEmpty.push(chapter);
 
     this.formation = new FormationSend(null, null, chapterListEmpty, null, null, null, null);
