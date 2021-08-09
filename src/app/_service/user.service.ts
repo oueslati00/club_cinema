@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Observable, ObservedValueOf} from 'rxjs';
+import {DomSanitizer} from '@angular/platform-browser';
 const DISPLAY_FORMATION_API = 'http://localhost:9097/api/user/formation/';
 const USER_INFORMATION_API = 'http://localhost:9097/api/user/';
 const COMMENT_API = 'http://localhost:9097/api/user/Comment/';
@@ -14,6 +15,8 @@ export class FormationInformation {
   formationName: string ;
   formateurName: string ;
   dateToStart: string;
+  formatuerImageUrl: any;
+  formateurId: number;
   constructor(Id: number, formationName: string, formateurName: string , dateToStart: string) {
     this.id = Id;
     this.dateToStart = dateToStart;
@@ -30,6 +33,7 @@ export interface FormationDisplay {
   finalDate: string;
   description: string;
   chapter: Chapter[];
+  durationPerNow: number;
 }
 export interface Chapter {
   id: number;
@@ -46,6 +50,8 @@ export class Comment {
   userName: string;
   localDate: string;
   description: string;
+  userId: number ;
+  imageUrl: any;
 }
 @Injectable({
   providedIn: 'root'
@@ -53,7 +59,7 @@ export class Comment {
 export class UserService {
   formation: FormationDisplay;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private sanitizer: DomSanitizer) { }
   getformationList(): Observable<FormationInformation[]> {
     return this.http.get<FormationInformation[]>(DISPLAY_FORMATION_API + 'list' );
   }
@@ -65,17 +71,35 @@ export class UserService {
     this.formation = formation;
   }
   // stream a video
-  streamVideoFormation(idcour: number): Observable<any> {
+  streamVideoFormationBycourId(idcour: number): Observable<any> {
     return this.http.get<any>('http://localhost:9097/api/user/formation/byterange/186', { responseType: 'blob' as 'json'});
 
-  }
-  getduration(formationId: number): Observable<any> {
-    return this.http.get<any>(DISPLAY_FORMATION_API + 'duration', httpOptions);
   }
 
   getUserInformation(id: number): Observable<any> {
     return this.http.get(USER_INFORMATION_API + 'informationUser/' + id.toString());
   }
+
+  updateInforamtionById(user: any, id: any): Observable<any> {
+    return this.http.put(USER_INFORMATION_API + 'Information/' + id, user);
+  }
+
+  // TODO : add image frontEnd By ID
+  addImageByidUser( file: File , id: number): Observable<any> {
+    let formdata: any = new FormData();
+    formdata.append('imageProfil' , file);
+    formdata.append('userId', id);
+    console.log('id ');
+    return this.http.post<any>(USER_INFORMATION_API + 'Image', formdata);
+  }
+
+  // TODO display image Backend by Id
+  streamImageByUserId(id: number): Observable<any> {
+    console.log('the id is  ' + id.toString());
+    return this.http.get<any>(USER_INFORMATION_API + 'informationUser/image/' + id.toString() , { responseType: 'blob' as 'json'});
+  }
+
+
 
   // comment service
   getcommentByCours(id: number): Observable<Comment[]> {
@@ -91,12 +115,46 @@ export class UserService {
 
   // compteRendu service
 
-  sendcompteRendu(file: File , courId: number , userId: number): Observable <any>{
-    var formdata : any = new FormData();
+  sendcompteRendu(file: File , courId: number , userId: number, ): Observable <any> {
+    let formdata: any = new FormData();
     formdata.append('file' , file);
     formdata.append('courId', courId);
     formdata.append('userId', userId);
     return this.http.post<any>('http://localhost:9097/api/user/compteRendu', formdata);
+  }
+  addImageToAllComment(comment: Comment[]) {
+   for (let i = 0 ; i < comment.length ; i++) {
+     this.streamImageByUserId(comment[i].userId).subscribe(
+       data => {
+         const url = URL.createObjectURL(data);
+         comment[i].imageUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+       }, error => {
+         console.log('error' + i);
+       }
+     );
+   }
+
+    return comment;
+  }
+  AddImageToAllFormation(list: FormationInformation[]) {
+    for ( let i = 0 ; i < list.length ; i++) {
+      if (list[i].formateurId !== null) {
+        this.streamImageByUserId(list[i].formateurId).subscribe(
+          data => {
+            const url = URL.createObjectURL(data);
+            list[i].formatuerImageUrl =  this.sanitizer.bypassSecurityTrustResourceUrl(url);
+          }, error => {
+            list[i].formatuerImageUrl = '../../../assets/img/theme/team-1-800x800.jpg';
+            console.log(error);
+          }
+        );
+      } else {
+        list[i].formatuerImageUrl = '../../../assets/img/theme/team-1-800x800.jpg';
+      }
+
+    }
+    return list;
+
   }
 
 }

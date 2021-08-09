@@ -26,8 +26,7 @@ constructor(private userService: UserService, private route: ActivatedRoute ) {
       this.userService.setFormation(this.formation);
       console.log(this.formation);
       this.cours =  this.formation.chapter[0].cour[0];
-      // TODO:add duration method to API
-      this.userService.getduration(this.formation.id);
+      this.idcour = this.cours.id;
       }, error => {
      this.error = error;
      console.log(error);

@@ -10,7 +10,7 @@ import {UserService, Comment} from '../../../_service/user.service';
 })
 export class CommentListComponent implements OnInit , OnChanges {
   @Input() idcour: number;
-  comment: Comment[];
+  comment: Comment[] = [];
   error = '';
   constructor(private userService: UserService , private token: TokenStorageService) { }
 
@@ -18,13 +18,20 @@ export class CommentListComponent implements OnInit , OnChanges {
     this.userService.getcommentByCours(this.idcour).subscribe(
       data => {
         this.comment = data;
+        console.log('*************');
+        console.log(this.comment);
+        console.log('************');
+        console.log(this.comment);
+        console.log('execute this method from coment compoent with id cour equal to ' + this.idcour);
+        console.log(this.comment);
+        this.comment = this.userService.addImageToAllComment(this.comment);
+        console.log('///////////');
+        console.log(this.comment[0].imageUrl);
       }, err => {
         console.log(err);
         this.error = err;
     }
     );
-    console.log(this.comment);
-    console.log('execute this method from coment compoent with id cour equal to ' + this.idcour);
   }
 
   addTodo(value: string) {

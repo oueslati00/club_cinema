@@ -58,13 +58,13 @@ const routes: Routes = [
     path : 'homePage',
     component : HomePageComponent
   }
-];
+] ;
 
 @NgModule({
   imports: [
     CommonModule,
     BrowserModule,
-    RouterModule.forRoot(routes,{
+    RouterModule.forRoot(routes, {
       useHash: true
     })
   ],

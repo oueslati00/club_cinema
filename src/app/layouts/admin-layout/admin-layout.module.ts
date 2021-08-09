@@ -18,7 +18,7 @@ import {FormationListComponent} from '../../pages/formation-list/formation-list.
 import {UserformtionComponent} from '../../pages/userformtion/userformtion.component';
 // import { ToastrModule } from 'ngx-toastr';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import {AppModule} from '../../app.module';
+import {authInterceptorProviders} from '../auth-layout/_helpers/auth.interceptor';
 @NgModule({
   imports: [
     CommonModule,
@@ -28,8 +28,7 @@ import {AppModule} from '../../app.module';
     NgbModule,
     ClipboardModule,
     ComponentsModule,
-    ModalModule,
-    AppModule
+    ModalModule
   ],
   declarations: [
     DashboardComponent,
@@ -40,6 +39,7 @@ import {AppModule} from '../../app.module';
     FormationListComponent,
     UserformtionComponent
   ],
+  providers : [authInterceptorProviders]
 
 })
 

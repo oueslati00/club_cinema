@@ -22,7 +22,7 @@ export class FormationDetailComponent implements OnInit , OnChanges {
 
   getvideo(courId: number): any {
     console.log(courId);
-     this.userservice.streamVideoFormation(168).subscribe(
+     this.userservice.streamVideoFormationBycourId(221).subscribe(
       data => {
         const url = URL.createObjectURL(data);
         this.video =  this.sanitizer.bypassSecurityTrustResourceUrl(url);

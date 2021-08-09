@@ -13,7 +13,10 @@ export class FormationListComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.getformationList().subscribe(
-      data => {this.list = data;
+      data => {
+        this.list = data;
+        this.list = this.userService.AddImageToAllFormation(this.list);
+        console.log(this.list);
       }, error => {
         console.log(error);
         this.error = error;
