@@ -7,17 +7,23 @@ import { UserProfileComponent } from '../../pages/user-profile/user-profile.comp
 import { TablesComponent } from '../../pages/tables/tables.component';
 import {AddformationComponent} from '../../pages/addformation/addformation.component';
 import {AddvideoComponent} from '../../pages/addvideo/addvideo.component';
-import {FormationListComponent} from '../../pages/formation-list/formation-list.component';
+
 import {UserformtionComponent} from '../../pages/userformtion/userformtion.component';
+import {UserInfoComponent} from '../../pages/user-info/user-info.component';
+import {FormationListComponent} from '../../pages/displayformation/formation-list/formation-list.component';
+import {FormationListAdminComponent} from '../../pages/formation-list/formation-list.component';
 
 export const AdminLayoutRoutes: Routes = [
-    { path: 'dashboard',      component: DashboardComponent },
-    { path: 'user-profile',   component: UserProfileComponent },
+  {path: '' ,  redirectTo : 'listdesformations', pathMatch: 'full' },
+  { path: 'dashboard',      component: DashboardComponent },
+    { path: 'user-profile',   component: UserInfoComponent },
     { path: 'tables',         component: TablesComponent },
     { path: 'icons',          component: IconsComponent },
     { path: 'members',           component: MapsComponent },
     {path: 'addforamtion', component: AddformationComponent},
     {path : 'videoDkika', component: AddvideoComponent},
-    {path: 'formationlist', component: FormationListComponent},
-    {path: 'userformation' , component: UserformtionComponent}
+    {path: 'userformation/:id' , component: UserformtionComponent},
+  {path: 'listdesformations' , component : FormationListComponent},
+  {path : 'formationlist' , component : FormationListAdminComponent}
+
 ];

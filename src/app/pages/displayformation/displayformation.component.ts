@@ -18,9 +18,9 @@ constructor(private userService: UserService, private route: ActivatedRoute ) {
 }
 
 
-  ngOnInit() {
+ async ngOnInit() {
   this.id = this.route.snapshot.params['id'];
- this.userService.getFormationById(this.id).subscribe(
+  await this.userService.getFormationById(this.id).then(
     data => {
       this.formation = data;
       this.userService.setFormation(this.formation);
@@ -32,6 +32,8 @@ constructor(private userService: UserService, private route: ActivatedRoute ) {
      console.log(error);
     }
   );
+  console.log('cour used information');
+  console.log(this.cours.name);
 
 
   }

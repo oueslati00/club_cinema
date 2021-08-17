@@ -40,6 +40,9 @@ import { DisplayMyformationComponent } from './pages/display-myformation/display
 import { AddChapterListComponent } from './pages/addformation/add-chapter-list/add-chapter-list.component';
 import { AddDetailCoursComponent } from './pages/addformation/add-detail-cours/add-detail-cours.component';
 import {AddformationComponent} from './pages/addformation/addformation.component';
+import { ParallaxDirective } from './pages/home-page/common/parallax.directive';
+import {MdbCarouselModule} from 'mdb-angular-ui-kit/carousel';
+import {ModalModule} from 'ngx-bootstrap/modal';
 
 
 
@@ -59,7 +62,8 @@ import {AddformationComponent} from './pages/addformation/addformation.component
     IvyCarouselModule,
     MatExpansionModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    MdbCarouselModule
   ],
   declarations: [
     AppComponent,
@@ -82,7 +86,8 @@ import {AddformationComponent} from './pages/addformation/addformation.component
     DisplayMyformationComponent,
     AddChapterListComponent,
     AddDetailCoursComponent,
-    AddformationComponent
+    AddformationComponent,
+    ParallaxDirective
 
 
   ],

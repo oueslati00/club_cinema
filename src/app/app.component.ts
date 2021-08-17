@@ -6,7 +6,7 @@ import {TokenStorageService} from './layouts/auth-layout/_service/token-storage.
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'Dkika Cinema ';
   private roles: string[];
   isLoggedIn = false;
@@ -15,7 +15,7 @@ export class AppComponent implements OnInit{
   username: string;
   constructor(private tokenStorageService: TokenStorageService) { }
   ngOnInit(): void {
-    this.isLoggedIn = !!this.tokenStorageService.getToken();
+ /*   this.isLoggedIn = !!this.tokenStorageService.getToken();
 
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
@@ -25,7 +25,7 @@ export class AppComponent implements OnInit{
       this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
 
       this.username = user.username;
-    }
+    }*/
   }
 
   logout(): void {

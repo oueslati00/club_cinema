@@ -19,7 +19,12 @@ export class LoginComponent implements OnInit, OnDestroy {
   ngOnInit() {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
-      this.roles = this.tokenStorage.getUser().roles;
+     this.tokenStorage.getUser2().then(
+       (resultat) => {
+         console.log(resultat);
+         this.roles = resultat.roles;
+       }
+      );
     }
   }
   onSubmit(): void {
@@ -33,7 +38,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        this.roles = this.tokenStorage.getUser().roles;
+        this.roles = data.roles;
         if (this.roles.includes('ROLE_ADMIN')) {
           this.route.navigate(['admin/']);
         } else {

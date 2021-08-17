@@ -63,17 +63,16 @@ export class UserService {
   getformationList(): Observable<FormationInformation[]> {
     return this.http.get<FormationInformation[]>(DISPLAY_FORMATION_API + 'list' );
   }
-  getFormationById(id: number): Observable<FormationDisplay> {
-    return this.http.get<FormationDisplay>(DISPLAY_FORMATION_API + id);
-
+ async getFormationById(id: number) {
+    return await this.http.get<FormationDisplay>(DISPLAY_FORMATION_API + id).toPromise();
   }
   setFormation(formation: FormationDisplay) {
     this.formation = formation;
   }
   // stream a video
-  streamVideoFormationBycourId(idcour: number): Observable<any> {
-    return this.http.get<any>('http://localhost:9097/api/user/formation/byterange/186', { responseType: 'blob' as 'json'});
-
+  async streamVideoFormationBycourId(idcour: number) {
+    const result = await this.http.get<any>('http://localhost:9097/api/user/formation/byterange/' + idcour.toString(), {responseType: 'blob' as 'json'}).toPromise()
+   return  result;
   }
 
   getUserInformation(id: number): Observable<any> {
@@ -136,6 +135,7 @@ export class UserService {
 
     return comment;
   }
+
   AddImageToAllFormation(list: FormationInformation[]) {
     for ( let i = 0 ; i < list.length ; i++) {
       if (list[i].formateurId !== null) {
@@ -155,6 +155,9 @@ export class UserService {
     }
     return list;
 
+  }
+  getUserByToken(): Observable<any> {
+   return  this.http.get('http://localhost:9097/api/user/test');
   }
 
 }

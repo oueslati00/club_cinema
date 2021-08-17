@@ -8,6 +8,12 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
 import {UserLayoutComponent} from './layouts/user-layout/user-layout.component';
 import {HomePageComponent} from './pages/home-page/home-page.component';
 import {FormateurLayoutComponent} from './layouts/formateur-layout/formateur-layout.component';
+import {ErrorPageComponent} from './components/error-page/error-page.component';
+import {userError} from '@angular/compiler-cli/src/transformers/util';
+import {UserGuard} from './_service/user.guard';
+import {AdminGuard} from './_service/admin.guard';
+import {FormateurGuard} from './_service/formateur.guard';
+import {LogoutGuard} from './_service/logout.guard';
 
 const routes: Routes = [
    {
@@ -18,7 +24,8 @@ const routes: Routes = [
         path: '',
         loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
       }
-    ]
+    ],
+     canActivateChild : [AdminGuard]
   }, {
     path: 'auth',
     component: AuthLayoutComponent,
@@ -27,7 +34,8 @@ const routes: Routes = [
         path: '',
         loadChildren: './layouts/auth-layout/auth-layout.module#AuthLayoutModule'
       }
-    ]
+    ],
+    canActivateChild : [LogoutGuard]
   },
   {
     path: 'user',
@@ -36,8 +44,9 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: './layouts/user-layout/user-layout.module#UserLayoutModule'
-      }
-    ]
+      },
+    ],
+    canActivateChild : [UserGuard]
   },
   {
     path: 'formateur',
@@ -47,16 +56,20 @@ const routes: Routes = [
         path: '',
         loadChildren: './layouts/formateur-layout/formateur-layout.module#FormateurLayoutModule'
       }
-    ]
+    ],
+    canActivateChild : [FormateurGuard]
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'auth',
     pathMatch: 'full',
   },
   {
     path : 'homePage',
     component : HomePageComponent
+  },
+  {
+  path : '**' , component : ErrorPageComponent
   }
 ] ;
 

@@ -29,19 +29,19 @@
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label class="form-control-label" for="input-name"><h6 class="text-uppercase text-light ls-1 mb-1">title</h6></label>
-                      <input type="text" id="input-name" class="form-control form-control-alternative" placeholder="cour name">
+                      <input type="text" id="input-name" class="form-control form-control-alternative" placeholder="cour name" [ngModelOptions]="{standalone: true}" [(ngModel)]="VideoDkikaRequest.videoName">
                     </div>
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label class="form-control-label" for="input-editor"><h6 class="text-uppercase text-light ls-1 mb-1">editor</h6></label>
-                      <input type="text" id="input-editor" class="form-control form-control-alternative" placeholder="editor name">
+                      <input type="text" id="input-editor" class="form-control form-control-alternative" placeholder="editor name" [ngModelOptions]="{standalone: true}" [(ngModel)]="VideoDkikaRequest.editor">
                     </div>
                   </div>
                 </div>
                 <div class="form-group">
                   <label><h6 class="text-uppercase text-light ls-1 mb-1">Description</h6></label>
-                  <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about your video ..."></textarea>
+                  <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about your video ..." [ngModelOptions]="{standalone: true}" [(ngModel)]="VideoDkikaRequest.description"></textarea>
                 </div>
                 <div class="container">
                   <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)"
@@ -67,7 +67,7 @@
                   </div>
                   <br>
                   <div class="col text-right">
-                    <a href="#!" class="btn btn-sm btn-primary">add video</a>
+                    <button class="btn btn-sm btn-primary" (click)="addVideo()">add video</button>
                   </div>
                 </div>
               </div>
@@ -98,23 +98,23 @@
               <th scope="col"> name</th>
               <th scope="col">Description</th>
               <th scope="col">Editor</th>
-              <th scope="col">rate</th>
+             <!-- <th scope="col">rate</th>-->
             </tr>
             </thead>
             <tbody>
-            <tr>
+            <tr *ngFor="let video of VideodkiakList">
               <th scope="row">
-                video one
+                {{video.name}}
               </th>
               <td>
-                first three word of the description
+                {{video.description}}
               </td>
               <td>
-                Editor name
+                {{video.editor}}
               </td>
-              <td>
-                <i class="fas fa-arrow-up text-success mr-3"></i> 46,53%
-              </td>
+             <!-- <td>
+                <i class="fas fa-arrow-up text-success mr-3">10%</i>
+              </td>-->
             </tr>
 
             </tbody>

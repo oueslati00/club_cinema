@@ -20,42 +20,35 @@
             <tr>
               <th scope="col">formation name</th>
               <th scope="col">formateur name</th>
-              <th scope="col">Status</th>
-              <th scope="col">Completion</th>
+              <th scope="col">Date To Start</th>
               <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
-            <tr>
+            <tr *ngFor="let formation of listforamtion">
               <th scope="row">
                 <div class="media align-items-center">
                   <div class="media-body">
-                    <span class="mb-0 text-sm">formation 1</span>
+                    <span class="mb-0 text-sm">{{formation.formationName}}</span>
                   </div>
                 </div>
               </th>
               <td scope="row">
                 <div class="media align-items-center">
                   <div class="media-body">
-                    <span class="mb-0 text-sm">formateur 1</span>
+                    <span class="mb-0 text-sm">{{formation.formateurName}}</span>
                   </div>
                 </div>
               </td>
 
-              <td>
-                  <span class="badge badge-dot mr-4">
-                    <i class="bg-warning"></i> pending
-                  </span>
-              </td>
-              <td>
-                <div class="d-flex align-items-center">
-                  <span class="mr-2">60%</span>
-                  <div>
-                    <div class="progress">
-                      <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-                    </div>
+              <td scope="row">
+                <div class="media align-items-center">
+                  <div class="media-body">
+                    <span class="mb-0 text-sm">{{formation.dateToStart}}</span>
                   </div>
                 </div>
+              </td>
+              <td>
               </td>
               <td class="text-right">
                 <div ngbDropdown placement="bottom-right">
@@ -63,9 +56,7 @@
                     <i class="fas fa-ellipsis-v"></i>
                   </a>
                   <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
-                    <a class="dropdown-item" href="javascript:void(0)" routerLink="/admin/userformation">More detail</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Start</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Stop</a>
+                    <a class="dropdown-item" href="javascript:void(0)" (click)="redirectTo(formation.id)" >More detail</a>
                   </div>
                 </div>
               </td>

@@ -1,153 +1,369 @@
 
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>Material Design for Bootstrap</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+  <!-- MDB -->
+  <link rel="stylesheet" href="./src/app/pages/home-page/common/mdb.min.css" />
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<!--Main Navigation-->
+<header>
+  <style>
+    /* Carousel styling */
+    #introCarousel,
+    .carousel-inner,
+    .carousel-item,
+    .carousel-item.active {
+      height: 100vh;
+    }
 
-<div class="container">
-  <carousel
-    [lightDOM]="true"
-  >
-    <div class="carousel-cell">
-      <img src="../../../assets/img/theme/team-1-800x800.jpg"  (click)="dislayvideo(1)">
-    </div>
-    <div class="carousel-cell">
-      <img src="../../../assets/img/theme/team-2-800x800.jpg">
-    </div>
-    <div class="carousel-cell " >
-      <img src="../../../assets/img/theme/team-2-800x800.jpg">
-    </div>
-    <div class="carousel-cell">
-      <img src="../../../assets/img/theme/team-2-800x800.jpg">
-    </div>
-    <div class="carousel-cell">
-      <img src="../../../assets/img/theme/team-3-800x800.jpg">
-    </div>
-    <div class="carousel-cell">
-      <img src="https://mdbootstrap.com/img/Photos/Slides/img%2810%29.jpg">
-    </div>
-    <div class="carousel-cell">
-      <img src="https://mdbootstrap.com/img/Photos/Slides/img%2810%29.jpg">
-    </div>
-  </carousel>
-</div>
+    .carousel-item:nth-child(1) {
+      background-image: url('assets/o-old-movie-film-facebook.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+    }
+    .carousel-item:nth-child(2) {
+      background-image: url('https://mdbootstrap.com/img/Photos/Others/images/77.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+    }
+    .carousel-item:nth-child(3) {
+      background-image: url('https://mdbootstrap.com/img/Photos/Others/images/78.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+    }
 
+    /* Height for devices larger than 576px */
+    @media (min-width: 992px) {
+      #introCarousel {
+        margin-top: -58.59px;
+      }
+      #introCarousel,
+      .carousel-inner,
+      .carousel-item,
+      .carousel-item.active {
+        height: 50vh;
+      }
+    }
 
-<br><br>
-<br><br>
-<br><br>
-<br><br>
+    .navbar .nav-link {
+      color: #fff !important;
+    }
+  </style>
 
-<div class="container-fluid mt--7">
-  <div class="row">
-    <div class="col-xl-8 mb-5 mb-xl-0">
-      <div class="card bg-gradient-default shadow">
-        <div class="card-header bg-transparent">
-          <div class="row align-items-center">
-            <div class="col">
-              <h6 class="text-uppercase text-light ls-1 mb-1">video numero 1</h6>
-              <h2 class="text-white mb-0">video name</h2>
-              <br><br> <br>
-              <div class="container">
-                <vg-player style="width: 500px;height:300px">
-                  <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
-                    <source src="./assets/BigDataRevision.mp4" type="video/mp4">
-                  </video>
-                </vg-player>
-              </div>
-            </div>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000;">
+    <div class="container-fluid">
+      <!-- Navbar brand -->
+      <a class="navbar-brand nav-link">
+        <strong>DKIKA CINEMA</strong>
+      </a>
+      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
+              aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarExample01">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="../register" rel="nofollow"
+               target="_blank">Sinup</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="../login" target="_blank">Login</a>
+          </li>
+        </ul>
 
+        <ul class="navbar-nav d-flex flex-row">
+          <!-- Icons -->
+          <li class="nav-item me-3 me-lg-0">
+            <a class="nav-link" href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA" rel="nofollow"
+               target="_blank">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </li>
+          <li class="nav-item me-3 me-lg-0">
+            <a class="nav-link" href="https://www.facebook.com/mdbootstrap" rel="nofollow" target="_blank">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar -->
+
+  <!-- Carousel wrapper -->
+  <div id="introCarousel" class="carousel slide carousel-fade shadow-3-strong" >
+    <!-- Indicators -->
+
+    <!-- Inner -->
+    <div class="carousel-inner">
+      <!-- Single item -->
+      <div class="carousel-item active">
+        <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+          <div class="d-flex justify-content-center align-items-center h-100">
           </div>
         </div>
       </div>
-      <div class="card-body">
-        <!-- Chart -->
 
+      <!-- Single item -->
 
+      <!-- Single item -->
 
-      </div>
     </div>
-    <div class="col-xl-4">
-      <div class="card shadow">
-        <div class="card-header bg-transparent">
-          <div class="row align-items-center">
-            <div class="col">
-              <h6 class="text-uppercase text-muted ls-1 mb-1">Description</h6>
-              <h2 class="mb-0">Description part</h2>
-            </div>
-          </div>
-        </div>
-        <div class="card-body">
-          <!-- Chart -->
-          <div class="chart">
-            add description herer!
-            <canvas id="chart-orders" class="chart-canvas">
-            </canvas>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- Inner -->
+
+    <!-- Controls -->
+
   </div>
-</div>
-<br><br>
-<br><br>
+  <!-- Carousel wrapper -->
+</header>
+<!--Main Navigation-->
 
-<div class="container">
-  <div class="row">
-    <div class="column-1 px-2 mb-r">
-      <div class="card default-color-dark">
-        <div class="view">
-          <img src="../../../assets/img/theme/team-1-800x800.jpg" class="card-img-top" alt="photo">
-          <a href="#">
-            <div class="mask rgba-white-slight"></div>
-          </a>
+<!--Main layout-->
+<main class="mt-5">
+  <div class="container">
+    <!--Section: Content-->
+    <section>
+      <div class="row">
+        <div class="col-md-6 gx-5 mb-4">
+          <div class="bg-image hover-overlay ripple shadow-2-strong" data-mdb-ripple-color="light">
+            <video class="video-fluid z-depth-1" autoplay loop controls muted>
+              <source src="https://mdbootstrap.com/img/video/Sail-Away.mp4" type="video/mp4" />
+            </video>
+            <a >
+              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+            </a>
+          </div>
         </div>
-        <div class="card-body text-center">
-          <h4 class="card-title white-text">Title of the Formateur</h4>
-          <p class="card-text white-text">formation description</p>
-        </div>
-      </div>
-    </div>
-    <div class="column-2 px-2 mb-r">
-      <div class="card primary-color-dark">
-        <div class="view">
-          <img src="../../../assets/img/theme/team-1-800x800.jpg" class="card-img-top" alt="photo">
-          <a href="#">
-            <div class="mask rgba-white-slight"></div>
-          </a>
-        </div>
-        <div class="card-body text-center">
-          <h4 class="card-title white-text">Title of the formation</h4>
-          <p class="card-text white-text">formation description</p>
-        </div>
-      </div>
-    </div>
-    <div class="column-1 px-2">
-      <div class="card warning-color-dark">
-        <div class="view">
-          <img src="../../../assets/img/theme/team-1-800x800.jpg" class="card-img-top" alt="photo">
-          <a href="#">
-            <div class="mask rgba-white-slight"></div>
-          </a>
-        </div>
-        <div class="card-body text-center">
-          <h4 class="card-title white-text">Title of the Formation</h4>
-          <p class="card-text white-text">description of the formation .</p>
+
+        <div class="col-md-6 gx-5 mb-4">
+          <h4><strong>Facilis consequatur eligendi</strong></h4>
+          <p class="text-muted">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consequatur
+            eligendi quisquam doloremque vero ex debitis veritatis placeat unde animi laborum
+            sapiente illo possimus, commodi dignissimos obcaecati illum maiores corporis.
+          </p>
+          <p><strong>Doloremque vero ex debitis veritatis?</strong></p>
+          <p class="text-muted">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod itaque voluptate
+            nesciunt laborum incidunt. Officia, quam consectetur. Earum eligendi aliquam illum
+            alias, unde optio accusantium soluta, iusto molestiae adipisci et?
+          </p>
         </div>
       </div>
-    </div>
-    <div class="column-1 px-2">
-      <div class="card warning-color-dark">
-        <div class="view">
-          <img src="../../../assets/img/theme/team-1-800x800.jpg" class="card-img-top" alt="photo">
-          <a href="#">
-            <div class="mask rgba-white-slight"></div>
-          </a>
+    </section>
+    <hr class="my-5" />
+    <section>
+      <div class="row">
+        <div class="col-md-6 gx-5 mb-4">
+          <div class="bg-image hover-overlay ripple shadow-2-strong" data-mdb-ripple-color="light">
+            <video class="video-fluid z-depth-1" autoplay loop controls muted>
+              <source src="https://mdbootstrap.com/img/video/Sail-Away.mp4" type="video/mp4" />
+            </video>
+            <a href="#!">
+              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+            </a>
+          </div>
         </div>
-        <div class="card-body text-center">
-          <h4 class="card-title white-text">Title of the Formation</h4>
-          <p class="card-text white-text">description of the formation .</p>
+
+        <div class="col-md-6 gx-5 mb-4">
+          <h4><strong>Facilis consequatur eligendi</strong></h4>
+          <p class="text-muted">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consequatur
+            eligendi quisquam doloremque vero ex debitis veritatis placeat unde animi laborum
+            sapiente illo possimus, commodi dignissimos obcaecati illum maiores corporis.
+          </p>
+          <p><strong>Doloremque vero ex debitis veritatis?</strong></p>
+          <p class="text-muted">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod itaque voluptate
+            nesciunt laborum incidunt. Officia, quam consectetur. Earum eligendi aliquam illum
+            alias, unde optio accusantium soluta, iusto molestiae adipisci et?
+          </p>
         </div>
       </div>
+    </section>
+    <!--Section: Content-->
+    <hr class="my-5" />
+    <div class="container">
+      <carousel
+        [lightDOM]="true"
+      >
+        <div class="carousel-cell">
+          <img src="../../../assets/img/theme/team-1-800x800.jpg"  (click)="dislayvideo(1)">
+        </div>
+        <div class="carousel-cell">
+          <img src="../../../assets/img/theme/team-2-800x800.jpg">
+        </div>
+        <div class="carousel-cell " >
+          <img src="../../../assets/img/theme/team-2-800x800.jpg">
+        </div>
+        <div class="carousel-cell">
+          <img src="../../../assets/img/theme/team-2-800x800.jpg">
+        </div>
+        <div class="carousel-cell">
+          <img src="../../../assets/img/theme/team-3-800x800.jpg">
+        </div>
+        <div class="carousel-cell">
+          <img src="https://mdbootstrap.com/img/Photos/Slides/img%2810%29.jpg">
+        </div>
+        <div class="carousel-cell">
+          <img src="https://mdbootstrap.com/img/Photos/Slides/img%2810%29.jpg">
+        </div>
+      </carousel>
     </div>
+
+    <hr class="my-5" />
+
+    <!--Section: Content-->
+    <section class="text-center">
+      <h4 class="mb-5"><strong>Facilis consequatur eligendi</strong></h4>
+
+      <div class="row">
+        <div class="col-lg-4 col-md-12 mb-4">
+          <div class="card">
+            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+              <img
+                src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
+                class="img-fluid"
+              />
+              <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+              </a>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up the bulk of the
+                card's content.
+              </p>
+              <a href="#!" class="btn btn-primary">Button</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="card">
+            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+              <img
+                src="assets/img/theme/team-1-800x800.jpg"
+                class="img-fluid"
+              />
+              <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+              </a>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up the bulk of the
+                card's content.
+              </p>
+              <a href="#!" class="btn btn-primary">Button</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="card">
+            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+              <img
+                src="https://mdbootstrap.com/img/new/standard/nature/111.jpg"
+                class="img-fluid"
+              />
+              <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+              </a>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up the bulk of the
+                card's content.
+              </p>
+              <a href="#!" class="btn btn-primary">Button</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Section: Content-->
+
+    <hr class="my-5" />
+
+    <video class="video-fluid z-depth-1" autoplay loop controls muted>
+      <source src="https://mdbootstrap.com/img/video/Sail-Away.mp4" type="video/mp4" />
+    </video>
+    <!--Section: Content-->
+    <!--Section: Content-->
   </div>
-</div>
+</main>
+<!--Main layout-->
 
+<!--Footer-->
+<footer class="bg-light text-lg-start">
+  <div class="py-4 text-center">
+    <a
+      role="button"
+      class="btn btn-primary btn-lg m-2"
+     routerLink="../register"
+    >
+      Signup
+    </a>
+    <a
+      role="button"
+      class="btn btn-primary btn-lg m-2"
+     routerLink="../auth/login"
+    >
+      Login
+    </a>
+  </div>
+
+  <hr class="m-0" />
+
+  <div class="text-center py-4 align-items-center">
+    <p>Follow Dkika Cinema on social media</p>
+    <a
+      href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA"
+      class="btn btn-primary m-1"
+      role="button"
+      rel="nofollow"
+      target="_blank"
+    >
+      <i class="fab fa-youtube"></i>
+    </a>
+    <a
+      href="https://www.facebook.com/mdbootstrap"
+      class="btn btn-primary m-1"
+      role="button"
+      rel="nofollow"
+      target="_blank"
+    >
+      <i class="fab fa-facebook-f"></i>
+    </a>
+
+
+  </div>
+</footer>
+<!--Footer-->
+<!-- MDB -->
+<script type="text/javascript" src="./src/app/pages/home-page/common/mdb.min.js"></script>
+<!-- Custom scripts -->
+<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
 

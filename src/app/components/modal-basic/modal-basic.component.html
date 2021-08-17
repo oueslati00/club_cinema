@@ -12,24 +12,28 @@
         <tr>
           <th scope="col">Chapter Name</th>
           <th scope="col">Cour Name</th>
-          <th scope="col">Compte Rendu</th>
+          <th scope="col">Compte Rendu added time </th>
+          <th scope="col"> Download Compte Rendu </th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let compteRendu of listOfCompteRendu">
+        <tr *ngFor="let compteRendu of compteRenduList">
           <th scope="row">
             <div class="media align-items-center">
 
               <div class="media-body">
-                <span class="mb-0 text-sm">{{compteRendu.Chapter_name}}</span>
+                <span class="mb-0 text-sm">{{compteRendu.username}}</span>
               </div>
             </div>
           </th>
           <td>
-            {{compteRendu.Cour_name}}
+            {{compteRendu.courname}}
           </td>
           <td>
-          {{compteRendu.Url}}
+          {{compteRendu.localDateTime}}
+          </td>
+          <td>
+            <button class="btn btn-danger" (click)="downloadCompteRendu(compteRendu.fileId)"> Download </button>
           </td>
         </tr>
         </tbody>

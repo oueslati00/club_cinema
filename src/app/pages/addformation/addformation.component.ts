@@ -12,8 +12,13 @@ import {Cours} from '../../_service/user.service';
 })
 export class AddformationComponent implements OnInit {
   forma: FormationSend;
-  cours : CoursSend;
+  cours: CoursSend;
   panelOpenState: boolean;
+  formulaireTrue = false;
+  formulaireFalse = false;
+  formulaireenCours = false;
+  Validation_Message = '';
+
   public files: NgxFileDropEntry[] = [];
   file: File;
   constructor(private formation: FormateurService) {
@@ -26,10 +31,25 @@ export class AddformationComponent implements OnInit {
     this.cours = this.forma.chapter[0].cour[0];
    console.log(this.forma);
   }
-  ValidateFormation() {
-     // TODO : add this final request to database
+ async ValidateFormation() {
+   this.formulaireTrue = false;
+   this.formulaireFalse = false;
+   this.formulaireenCours = false;
+    this.formulaireenCours = true;
+   this.Validation_Message = 'formation en cour';
     console.log(this.forma);
-    this.formation.sendformation(this.forma);
+    await this.formation.sendformation(this.forma);
+   if (this.formation.validationMessage.length === 0) {
+     this.formulaireTrue = true;
+     this.Validation_Message = ' formation was added to data base correctly ';
+     this.formulaireenCours = false;
+     this.formation.validationMessage = '';
+   } else {
+     this.formulaireenCours = false;
+     this.formulaireFalse = true;
+     this.Validation_Message = this.formation.validationMessage;
+     this.formation.validationMessage = '';
+   }
   }
   ReciveEvent($event: CoursSend) {
     console.log('recive event was executed');

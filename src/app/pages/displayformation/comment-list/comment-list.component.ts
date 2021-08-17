@@ -12,6 +12,7 @@ export class CommentListComponent implements OnInit , OnChanges {
   @Input() idcour: number;
   comment: Comment[] = [];
   error = '';
+  username = '';
   constructor(private userService: UserService , private token: TokenStorageService) { }
 
   ngOnInit(): void {
@@ -34,12 +35,16 @@ export class CommentListComponent implements OnInit , OnChanges {
     );
   }
 
-  addTodo(value: string) {
+ async addTodo(value: string) {
     console.log(value);
     // add this comment to user database
-    var username = this.token.getUser().username;
+    await this.token.getUser2().then(
+    data => {
+      this.username = data.username;
+    }
+      );
 
-    this.userService.addComment(username, this.idcour , value).subscribe(
+    await this.userService.addComment(this.username, this.idcour , value).subscribe(
       data => {
        this.ngOnInit();
       }, error1 => {

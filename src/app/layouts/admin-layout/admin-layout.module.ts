@@ -14,7 +14,7 @@ import { UserProfileComponent } from '../../pages/user-profile/user-profile.comp
 import { TablesComponent } from '../../pages/tables/tables.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {ComponentsModule} from '../../components/components.module';
-import {FormationListComponent} from '../../pages/formation-list/formation-list.component';
+import {FormationListAdminComponent} from '../../pages/formation-list/formation-list.component';
 import {UserformtionComponent} from '../../pages/userformtion/userformtion.component';
 // import { ToastrModule } from 'ngx-toastr';
 import { ModalModule } from 'ngx-bootstrap/modal';
@@ -36,7 +36,7 @@ import {authInterceptorProviders} from '../auth-layout/_helpers/auth.interceptor
     TablesComponent,
     IconsComponent,
     MapsComponent,
-    FormationListComponent,
+    FormationListAdminComponent,
     UserformtionComponent
   ],
   providers : [authInterceptorProviders]

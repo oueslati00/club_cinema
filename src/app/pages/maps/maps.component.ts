@@ -9,7 +9,7 @@ import {ok} from 'assert';
 })
 export class MapsComponent implements OnInit {
   errormessage: string;
-  listofuser: simpleuser[];
+  listofuser: simpleuser[] = [];
   button_color = 'btn btn-light';
   validate_value = 'valide';
   constructor(private simpleuserservice: SimpleuserService) { }
@@ -18,6 +18,7 @@ export class MapsComponent implements OnInit {
     this.simpleuserservice.userList().subscribe(
       (p) => {
         this.listofuser = p;
+        console.log(p);
       },
       error => {
         this.errormessage = error.error.message;
@@ -41,5 +42,44 @@ export class MapsComponent implements OnInit {
         this.errormessage = error.error.message;
       }
     );
+  }
+  // TODO : is Method does not work : after reload this page work correctly
+  isModerator(user: simpleuser): boolean {
+    return user.roles.map(x => x.name).includes('ROLE_MODERATOR');
+  }
+  verifiedThisAccount(user: simpleuser) {
+    this.simpleuserservice.verifiedThisAccount(user.id).subscribe(
+      data => {
+        this.ngOnInit();
+      }, error => {
+        console.log(error);
+      }
+
+    );
+
+  }
+  UnverifiedThsiAccount(user: simpleuser) {
+    this.simpleuserservice.UnverifiedThsiAccount(user.id).subscribe(
+      data => {
+        console.log('simple user service was executed');
+        this.ngOnInit();
+      }, error => {
+      console.log(error);
+    }
+    );
+  }
+  FromFormateurToSimpleUser(user: simpleuser) {
+    this.simpleuserservice.deleteformateurAccess(user.id).subscribe(
+      data => {
+        this.ngOnInit();
+      }
+    );
+  }
+  FromSimpleUserTOFormateur(user: simpleuser) {
+          this.simpleuserservice.setUserAsFormateur(user.id).subscribe(
+            data => {
+              this.ngOnInit();
+            }
+          );
   }
 }

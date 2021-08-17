@@ -9,6 +9,7 @@ import {SendmailComponent} from '../../pages/forgetpassword/sendmail/sendmail.co
 import {UpdatepasswordComponent} from '../../pages/forgetpassword/updatepassword/updatepassword.component';
 
 export const AuthLayoutRoutes: Routes = [
+  {path : '' , redirectTo : 'homePage', pathMatch : 'full'},
     { path: 'login',          component: LoginComponent },
     { path: 'register',       component: RegisterComponent },
     {path : 'homePage', component : HomePageComponent},

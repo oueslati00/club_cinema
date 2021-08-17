@@ -41,8 +41,9 @@ export class SidebarFormateurComponent implements OnInit {
   }
 
   logoutfunction() {
-    this.router.navigate(['homePage']);
     this.token.signOut();
+    this.router.navigate(['auth/homePage']);
+
   }
 
 }

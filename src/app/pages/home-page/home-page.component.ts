@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {RfxParallaxService} from 'rfx-parallax';
+import { Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+
 
 @Component({
   selector: 'app-home-page',
@@ -7,11 +7,10 @@ import {RfxParallaxService} from 'rfx-parallax';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
+  constructor() { }
   images: any;
-  constructor(private rfxParallaxService: RfxParallaxService) { }
 
   public ngOnInit(): void {
-    this.rfxParallaxService.initListeners();
   }
 
   dislayvideo(id: number) {

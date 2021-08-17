@@ -17,12 +17,13 @@ export class FormationDetailComponent implements OnInit , OnChanges {
   constructor(private userservice: UserService, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
+    console.log(this.cours);
   this.getvideo(this.cours.id);
   }
 
   getvideo(courId: number): any {
     console.log(courId);
-     this.userservice.streamVideoFormationBycourId(221).subscribe(
+     this.userservice.streamVideoFormationBycourId(this.cours.id).then(
       data => {
         const url = URL.createObjectURL(data);
         this.video =  this.sanitizer.bypassSecurityTrustResourceUrl(url);

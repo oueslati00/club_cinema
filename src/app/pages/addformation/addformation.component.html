@@ -4,6 +4,21 @@
       <!-- Card stats -->
       <h1 class="display-2 text-white">Add formation interface</h1>
       <button class="btn btn-primary" (click)="ValidateFormation()"> validate this formation </button>
+      <div
+        class="alert alert-primary"
+        *ngIf="formulaireenCours">
+        {{Validation_Message}}
+      </div>
+      <div
+        class="alert alert-success"
+        *ngIf="formulaireTrue">
+        {{Validation_Message}}
+      </div>
+      <div
+        class="alert alert-danger"
+        *ngIf="formulaireFalse">
+        {{Validation_Message}}
+      </div>
     </div>
   </div>
 </div>

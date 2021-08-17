@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {LOGOUT} from '../sidbaruser/sidbaruser.component';
+import {TokenStorageService} from '../../layouts/auth-layout/_service/token-storage.service';
 
 declare interface RouteInfo {
     path: string;
@@ -14,8 +16,8 @@ export const ROUTES: RouteInfo[] = [
     { path: 'user-profile', title: 'My profile',  icon: 'ni-single-02 text-yellow', class: '' },
     {path: 'addforamtion' , title : 'add formation' , icon: 'ni ni-book-bookmark text-red', class: ''},
     { path: 'videoDkika', title: ' Video Dkika',  icon: 'ni-key-25 text-info', class: '' },
-  {path : 'formationlist', title: 'formation list' , icon : 'ni ni-book-bookmark text-red', class:''},
-    {path: 'logout' , title: 'Logout', icon: 'ni ni-user-run', class: '' }
+  {path : 'formationlist', title: 'compte Rendu List' , icon : 'ni ni-book-bookmark text-red', class: ''},
+  {path : 'listdesformations' , title: 'display formation List', icon : 'ni ni-book-bookmark text-red', class: ''}
 
 ];
 
@@ -28,13 +30,20 @@ export class SidebarComponent implements OnInit {
 
   public menuItems: any[];
   public isCollapsed = true;
-
-  constructor(private router: Router) { }
+  public logout: RouteInfo;
+  constructor(private router: Router, private token: TokenStorageService ) { }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
+    this.logout = LOGOUT;
     this.router.events.subscribe((event) => {
       this.isCollapsed = true;
    });
+  }
+
+  logoutfunction() {
+    this.token.signOut();
+    this.router.navigate(['auth/homePage']);
+
   }
 }

@@ -2,11 +2,12 @@ export interface simpleuser{
   id: number;
   username: string;
   email: string;
-  phone_number: string;
+  phoneNumber: string;
   accountVerfied: boolean;
   adress: string;
   city: string;
   country: string;
-
-
+  dateOfBirth: string;
+  roles: any[];
 }
+
