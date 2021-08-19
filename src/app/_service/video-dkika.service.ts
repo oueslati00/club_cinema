@@ -40,7 +40,7 @@ export class VideoDkikaService {
     let formadata: any = new FormData();
     formadata.append('file', file);
     console.log(formadata);
-    return this.http.post<number>('http://localhost:9097/api/admin/videoDkika/upload', formadata);
+    return this.http.post<number>('http://localhost:9097/api/formateur/videoDkika/upload', formadata);
   }
   // remove video dkika  a travers son Id
   deleteVideo(id: number): Observable<any> {
@@ -72,7 +72,7 @@ export class VideoDkikaService {
     return list;
   }
   // addVideoDkika description before uploading the file
-   addvideoDescription(video: VideoDkikaRequest): Observable<any>{
-    return this.http.post<any>('http://localhost:9097/api/admin/videoDkika/video', video);
+   addvideoDescription(video: VideoDkikaRequest): Observable<any> {
+    return this.http.post<any>('http://localhost:9097/api/formateur/videoDkika/video', video);
    }
 }

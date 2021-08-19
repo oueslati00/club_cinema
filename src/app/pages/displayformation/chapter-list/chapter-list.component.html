@@ -13,11 +13,8 @@
           <mat-expansion-panel (opened)="panelOpenState = true"
                                (closed)="panelOpenState = false">
             <mat-expansion-panel-header>
-              <mat-panel-title>
-                {{forma.id}} chapter id
-              </mat-panel-title>
               <mat-panel-description>
-                {{forma.name}} chapter name
+                {{forma.name}}
               </mat-panel-description>
             </mat-expansion-panel-header>
             <mat-list *ngFor="let co of forma.cour ">

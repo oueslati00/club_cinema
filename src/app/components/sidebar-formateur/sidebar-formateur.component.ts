@@ -15,7 +15,7 @@ export const ROUTE_FORMATEUR: RouteInfo[] = [
 
   { path: 'listdesformations', title: 'List des formations',  icon: 'ni-key-25 text-info', class: '' },
   { path: 'listvideo', title: 'video dkika',  icon: 'ni-circle-08 text-pink', class: '' },
-  { path: 'mesformations', title: ' mes formations',  icon: 'ni-circle-08 text-pink', class: '' },
+  { path: 'mesformations', title: ' compte Rendu ',  icon: 'ni-circle-08 text-pink', class: '' },
   { path: 'addformation', title: 'ajouter une foramtion',  icon: 'ni-circle-08 text-pink', class: '' },
   { path: 'ajouterVideoDkika', title: 'ajouter Video Dkika',  icon: 'ni-circle-08 text-pink', class: '' },
   { path: 'userInformation', title: 'User profile',  icon: 'ni-single-02 text-yellow', class: '' },

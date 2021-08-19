@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, ObservedValueOf} from 'rxjs';
 import {DomSanitizer} from '@angular/platform-browser';
+import {TokenStorageService} from '../layouts/auth-layout/_service/token-storage.service';
 const DISPLAY_FORMATION_API = 'http://localhost:9097/api/user/formation/';
 const USER_INFORMATION_API = 'http://localhost:9097/api/user/';
 const COMMENT_API = 'http://localhost:9097/api/user/Comment/';
@@ -58,6 +59,8 @@ export class Comment {
 })
 export class UserService {
   formation: FormationDisplay;
+  user: any;
+  compteRenduIsDone = false;
 
   constructor(private http: HttpClient, private sanitizer: DomSanitizer) { }
   getformationList(): Observable<FormationInformation[]> {
@@ -114,12 +117,24 @@ export class UserService {
 
   // compteRendu service
 
-  sendcompteRendu(file: File , courId: number , userId: number, ): Observable <any> {
-    let formdata: any = new FormData();
-    formdata.append('file' , file);
-    formdata.append('courId', courId);
-    formdata.append('userId', userId);
-    return this.http.post<any>('http://localhost:9097/api/user/compteRendu', formdata);
+   sendcompteRendu(file: File , courId: number) {
+    this.getUserByToken().subscribe(
+      data => {
+        const formdata: any = new FormData();
+        formdata.append('file' , file);
+        formdata.append('courId', courId);
+        formdata.append('userId', data.id);
+        this.http.post<any>('http://localhost:9097/api/user/compteRendu', formdata).subscribe(
+          data1 => {
+            console.log(data1);
+            this.compteRenduIsDone = true;
+          }, error => {
+            this.compteRenduIsDone = false;
+          }
+        );
+      }
+    )
+
   }
   addImageToAllComment(comment: Comment[]) {
    for (let i = 0 ; i < comment.length ; i++) {

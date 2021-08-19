@@ -12,6 +12,8 @@ import {UserformtionComponent} from '../../pages/userformtion/userformtion.compo
 import {UserInfoComponent} from '../../pages/user-info/user-info.component';
 import {FormationListComponent} from '../../pages/displayformation/formation-list/formation-list.component';
 import {FormationListAdminComponent} from '../../pages/formation-list/formation-list.component';
+import {DisplayformationComponent} from '../../pages/displayformation/displayformation.component';
+import {DisplaylistvideoComponent} from '../../pages/displaylistvideo/displaylistvideo.component';
 
 export const AdminLayoutRoutes: Routes = [
   {path: '' ,  redirectTo : 'listdesformations', pathMatch: 'full' },
@@ -24,6 +26,7 @@ export const AdminLayoutRoutes: Routes = [
     {path : 'videoDkika', component: AddvideoComponent},
     {path: 'userformation/:id' , component: UserformtionComponent},
   {path: 'listdesformations' , component : FormationListComponent},
-  {path : 'formationlist' , component : FormationListAdminComponent}
-
+  {path : 'formationlist' , component : FormationListAdminComponent},
+  { path: 'formation_display/:id',       component: DisplayformationComponent },
+  {path : 'listvideo', component: DisplaylistvideoComponent},
 ];

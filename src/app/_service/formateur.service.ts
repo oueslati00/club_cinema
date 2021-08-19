@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {observable, Observable} from 'rxjs';
 import {chapter} from './Models/formation';
 import {simpleuser} from './Models/User';
+import {TokenStorageService} from '../layouts/auth-layout/_service/token-storage.service';
 
 const FORMATEUR_ADD_FORMATION_API = 'http://localhost:9097/api/formateur/formation';
 const FORMATEUR_ADD_VIDEO_API = 'http://localhost:9097/api/formateur/formation/addVideo';
@@ -63,7 +64,7 @@ export class FormateurService {
   validationMessage = '';
   formation: FormationSend;
   test: any;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private token : TokenStorageService) { }
   validateFormation(formationSend: FormationSend): boolean {
     console.log(formationSend.firstDate);
     if (formationSend.finalDate === null || formationSend.firstDate === null) {
@@ -119,8 +120,14 @@ export class FormateurService {
       }
 
       console.log('the add of video was efected with sucess');
-      formationSend.formateurId = 33;
-      console.log( 'the formation that was send  ' + formationSend);
+     await this.token.getUser2().then(
+        data => {
+          console.log(' get formateur Id was executed ');
+          formationSend.formateurId = data.id;
+        }
+      );
+      console.log( 'the formation that was send  ');
+      console.log(formationSend);
       await this.http.post<FormationSend>(FORMATEUR_ADD_FORMATION_API, formationSend, httpOptions).toPromise()
         .then(
           data => {

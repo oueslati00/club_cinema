@@ -1,13 +1,16 @@
 <div class="card bg-gradient-default shadow">
   <div class="card-header bg-transparent">
     <div class="row align-items-center">
-      <div class="col">
+      <div >
         <mat-card  class="container" style="background-color: #ffffff; margin-top: 10px">
           <input type="text" class="form-control form-control-alternative" placeholder="cour name" [(ngModel)]="cours.name">
         </mat-card>
       </div>
       <mat-card  class="container" style="background-color: #ffffff; margin-top: 10px">
-        <input type="text" class="form-control form-control-alternative" placeholder="cour name" [(ngModel)]="cours.description">
+        <div class="form-group">
+          <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about your cour here" [(ngModel)]="cours.description"></textarea>
+        </div>
+
       </mat-card>
       <mat-card class="container" style="background-color: #ffffff; margin-top: 10px">
         <div class="row">
