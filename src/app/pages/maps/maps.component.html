@@ -108,7 +108,7 @@
                     <thead class="thead-light">
                     <tr>
                       <th scope="col">User Name</th>
-                      <th scope="col">Email</th>
+                      <th scope="col">Information</th>
                       <th scope="col">Role</th>
                       <th scope="col">Validate As User</th>
                       <th scope="col">Validate As formateur</th>
@@ -126,14 +126,12 @@
                         </div>
                       </th>
                       <td>
-                        {{user.email}}
+                  <span class="badge badge-dot mr-4">
+                    <app-modal-user-info [user] = "user"></app-modal-user-info>
+                  </span>
                       </td>
-
-                      <td >
-                        <div *ngFor="let role of user.roles ">
-                          --{{role.name}}--
-                        </div>
-
+                      <td>
+                        {{getRole(user)}}
                       </td>
                       <td>
                         {{user.accountVerfied}}
@@ -164,7 +162,7 @@
                               </div>
 
                             </a>
-                            <a class="dropdown-item" href="javascript:void(0)">More Inforamtion </a>
+
                           </div>
                         </div>
                       </td>

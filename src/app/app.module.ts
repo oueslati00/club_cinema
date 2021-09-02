@@ -88,8 +88,6 @@ import {ModalModule} from 'ngx-bootstrap/modal';
     AddDetailCoursComponent,
     AddformationComponent,
     ParallaxDirective
-
-
   ],
   providers: [authInterceptorProviders],
   exports: [

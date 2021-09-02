@@ -15,10 +15,10 @@ export const ROUTES: RouteInfo[] = [
     { path: 'members', title: 'Member Information',  icon: 'ni ni-badge text-orange', class: '' },
     { path: 'user-profile', title: 'My profile',  icon: 'ni-single-02 text-yellow', class: '' },
     {path: 'addforamtion' , title : 'add formation' , icon: 'ni ni-book-bookmark text-red', class: ''},
-    { path: 'videoDkika', title: ' Video Dkika',  icon: 'ni-key-25 text-info', class: '' },
-  {path : 'formationlist', title: 'compte Rendu List' , icon : 'ni ni-book-bookmark text-red', class: ''},
-  {path : 'listdesformations' , title: 'display formation List', icon : 'ni ni-book-bookmark text-red', class: ''},
-  {path : 'listvideo' , title: 'display video List', icon : 'ni ni-book-bookmark text-red', class: ''}
+    { path: 'videoDkika', title: ' Video Dkika',  icon: 'ni ni-button-play text-pink', class: '' },
+  {path : 'formationlist', title: 'compte Rendu List' , icon : 'ni ni-archive-2 text-red', class: ''},
+  {path : 'listdesformations' , title: 'display formation List', icon : 'ni ni-books text-red', class: ''},
+  {path : 'listvideo' , title: 'display video List', icon : 'ni ni-tv-2 text-red', class: ''}
 
 ];
 

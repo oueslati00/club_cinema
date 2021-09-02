@@ -21,7 +21,7 @@
               <th scope="col">formation name</th>
               <th scope="col">formateur name</th>
               <th scope="col">Date To Start</th>
-              <th scope="col"></th>
+              <th scope="col"> CompteRendu List</th>
             </tr>
             </thead>
             <tbody>
@@ -49,16 +49,9 @@
                 </div>
               </td>
               <td>
-              </td>
-              <td class="text-right">
-                <div ngbDropdown placement="bottom-right">
-                  <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
-                    <i class="fas fa-ellipsis-v"></i>
-                  </a>
-                  <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
-                    <a class="dropdown-item" href="javascript:void(0)" (click)="redirectTo(formation.id)" >More detail</a>
-                  </div>
-                </div>
+                  <span class="badge badge-dot mr-4">
+                    <app-modal-basic [idformation] = "formation.id"></app-modal-basic>
+                  </span>
               </td>
             </tr>
             </tbody>

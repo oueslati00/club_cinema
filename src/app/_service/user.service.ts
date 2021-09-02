@@ -86,7 +86,6 @@ export class UserService {
     return this.http.put(USER_INFORMATION_API + 'Information/' + id, user);
   }
 
-  // TODO : add image frontEnd By ID
   addImageByidUser( file: File , id: number): Observable<any> {
     let formdata: any = new FormData();
     formdata.append('imageProfil' , file);
@@ -95,15 +94,12 @@ export class UserService {
     return this.http.post<any>(USER_INFORMATION_API + 'Image', formdata);
   }
 
-  // TODO display image Backend by Id
   streamImageByUserId(id: number): Observable<any> {
     console.log('the id is  ' + id.toString());
     return this.http.get<any>(USER_INFORMATION_API + 'informationUser/image/' + id.toString() , { responseType: 'blob' as 'json'});
   }
 
 
-
-  // comment service
   getcommentByCours(id: number): Observable<Comment[]> {
     return this.http.get<Comment[]>(COMMENT_API + 'cours/' + id , httpOptions);
   }

@@ -1,0 +1,26 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">More Information</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+
+    <img [src]="imageUrl" width="200px" height="200px"> <br>
+   username : {{user.username}}<br>
+   date de naissance : {{ user.dateOfBirth }} <br>
+   email :  {{user.email}} <br>
+    numero de telephone : {{user.phoneNumber}}<br>
+    address :  {{user.address}}<br>
+    city :{{user.city}}<br>
+    country :{{user.country}}<br>
+    account Verified :{{user.accountVerfied}}<br>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+  </div>
+</ng-template>
+
+<button class="btn  btn-outline-primary" (click)="open(content)">Information</button>

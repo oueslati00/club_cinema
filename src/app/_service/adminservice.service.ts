@@ -26,8 +26,12 @@ export class AdminserviceService {
 
   downloadFile(data: any) {
     const blob = new Blob([data], { type: 'text' });
-
+    const a = document.createElement('a');
     const url = window.URL.createObjectURL(blob);
-    window.open(url);
+    a.href = url;
+    a.download = 'compteRendu.txt';
+    a.click();
+    URL.revokeObjectURL(url);
+
   }
 }

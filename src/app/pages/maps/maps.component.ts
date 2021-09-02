@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {SimpleuserService} from '../../layouts/admin-layout/_service/simpleuser.service';
 import {simpleuser} from '../../_service/Models/User';
-import {ok} from 'assert';
+
 @Component({
   selector: 'app-maps',
   templateUrl: './maps.component.html',
@@ -12,7 +12,10 @@ export class MapsComponent implements OnInit {
   listofuser: simpleuser[] = [];
   button_color = 'btn btn-light';
   validate_value = 'valide';
-  constructor(private simpleuserservice: SimpleuserService) { }
+
+
+  constructor(private simpleuserservice: SimpleuserService) {
+  }
 
   ngOnInit() {
     this.simpleuserservice.userList().subscribe(
@@ -25,28 +28,10 @@ export class MapsComponent implements OnInit {
       }
     );
   }
-
-  verified(Id: number) {
-    this.simpleuserservice.VerifiedById(Id).subscribe(
-      (p) => {
-         if ( p === 'valide' ) {
-           this.button_color = 'btn btn-danger';
-           this.validate_value = 'disable';
-         }
-         if (p === 'nonvalide') {
-           this.button_color = 'btn btn-light';
-           this.validate_value = 'enable';
-         }
-      },
-      error => {
-        this.errormessage = error.error.message;
-      }
-    );
-  }
-  // TODO : is Method does not work : after reload this page work correctly
   isModerator(user: simpleuser): boolean {
     return user.roles.map(x => x.name).includes('ROLE_MODERATOR');
   }
+
   verifiedThisAccount(user: simpleuser) {
     this.simpleuserservice.verifiedThisAccount(user.id).subscribe(
       data => {
@@ -54,20 +39,21 @@ export class MapsComponent implements OnInit {
       }, error => {
         console.log(error);
       }
-
     );
 
   }
+
   UnverifiedThsiAccount(user: simpleuser) {
     this.simpleuserservice.UnverifiedThsiAccount(user.id).subscribe(
       data => {
         console.log('simple user service was executed');
         this.ngOnInit();
       }, error => {
-      console.log(error);
-    }
+        console.log(error);
+      }
     );
   }
+
   FromFormateurToSimpleUser(user: simpleuser) {
     this.simpleuserservice.deleteformateurAccess(user.id).subscribe(
       data => {
@@ -75,11 +61,23 @@ export class MapsComponent implements OnInit {
       }
     );
   }
+
   FromSimpleUserTOFormateur(user: simpleuser) {
-          this.simpleuserservice.setUserAsFormateur(user.id).subscribe(
-            data => {
-              this.ngOnInit();
-            }
-          );
+    this.simpleuserservice.setUserAsFormateur(user.id).subscribe(
+      data => {
+        this.ngOnInit();
+      }
+    );
+  }
+
+  getRole(user: simpleuser) {
+    if (this.isModerator(user)) {
+      return 'Formateur';
+    }
+    return 'Simple User';
   }
 }
+
+
+
+

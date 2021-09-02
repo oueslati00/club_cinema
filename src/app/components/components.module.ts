@@ -12,6 +12,7 @@ import {NgxFileDropModule} from 'ngx-file-drop';
 import { SidbaruserComponent } from './sidbaruser/sidbaruser.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { SidebarFormateurComponent } from './sidebar-formateur/sidebar-formateur.component';
+import { ModalUserInfoComponent } from './modal-user-info/modal-user-info.component';
 
 
 
@@ -32,7 +33,8 @@ import { SidebarFormateurComponent } from './sidebar-formateur/sidebar-formateur
     AddcourComponent,
     SidbaruserComponent,
     ErrorPageComponent,
-    SidebarFormateurComponent
+    SidebarFormateurComponent,
+    ModalUserInfoComponent
   ],
     exports: [
         FooterComponent,
@@ -41,7 +43,8 @@ import { SidebarFormateurComponent } from './sidebar-formateur/sidebar-formateur
         ModalBasicComponent,
         AddcourComponent,
         SidbaruserComponent,
-        SidebarFormateurComponent
+        SidebarFormateurComponent,
+        ModalUserInfoComponent
     ]
 })
 export class ComponentsModule { }

@@ -19,6 +19,8 @@ import {UserformtionComponent} from '../../pages/userformtion/userformtion.compo
 // import { ToastrModule } from 'ngx-toastr';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import {authInterceptorProviders} from '../auth-layout/_helpers/auth.interceptor';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 @NgModule({
   imports: [
     CommonModule,
@@ -28,7 +30,9 @@ import {authInterceptorProviders} from '../auth-layout/_helpers/auth.interceptor
     NgbModule,
     ClipboardModule,
     ComponentsModule,
-    ModalModule
+    ModalModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   declarations: [
     DashboardComponent,
