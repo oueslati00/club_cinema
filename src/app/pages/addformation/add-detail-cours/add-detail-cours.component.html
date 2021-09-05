@@ -3,21 +3,21 @@
     <div class="row align-items-center">
       <div >
         <mat-card  class="container" style="background-color: #ffffff; margin-top: 10px">
-          <input type="text" class="form-control form-control-alternative" placeholder="cour name" [(ngModel)]="cours.name">
+          <input type="text" class="form-control form-control-alternative" placeholder="le nome de ce cour" [(ngModel)]="cours.name">
         </mat-card>
       </div>
       <mat-card  class="container" style="background-color: #ffffff; margin-top: 10px">
         <div class="form-group">
-          <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about your cour here" [(ngModel)]="cours.description"></textarea>
+          <textarea rows="4" class="form-control form-control-alternative" placeholder="description de ce cour" [(ngModel)]="cours.description"></textarea>
         </div>
 
       </mat-card>
       <mat-card class="container" style="background-color: #ffffff; margin-top: 10px">
         <div class="row">
           <div class="col-md-7">
-            add video here
-            video should be less than 60 MegaByte
-               the file name is :
+            ajouter un video pour ce cour
+
+               le nom cette fichier est :
             <input [value]="filename" disabled>
           </div>
           <div class="col-3">

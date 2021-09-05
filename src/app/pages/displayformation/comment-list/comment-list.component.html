@@ -3,14 +3,14 @@
     <h6 class="heading-small text-muted mb-4">Ajouter votre commentaire</h6>
     <div class="pl-lg-4">
       <div class="form-group">
-        <textarea rows="4"  #titleInput class="form-control form-control-alternative" placeholder="the comment should be more thant 10 character"></textarea>
+        <textarea rows="4"  #titleInput class="form-control form-control-alternative" placeholder="le comment should be more thant 10 character"></textarea>
       </div>
     </div>
     <div class="pl-lg-4"></div>
-    <button class="btn btn-danger" type="submit" (click) = 'addTodo(titleInput.value)'>Add</button>
+    <button class="btn btn-danger" type="submit" (click) = 'addTodo(titleInput.value)'>ajouter</button>
       <hr class="my-4" />
       <!-- Description -->
-      <h6 class="heading-small text-muted mb-4"> comment list</h6>
+      <h6 class="heading-small text-muted mb-4"> liste des commentaires</h6>
       <div class="pl-lg-4">
         <div class="form-group" *ngFor="let com of comment ">
           <div class="row" >

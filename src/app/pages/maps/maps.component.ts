@@ -1,6 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {SimpleuserService} from '../../layouts/admin-layout/_service/simpleuser.service';
 import {simpleuser} from '../../_service/Models/User';
+import {AdminserviceService} from '../../_service/adminservice.service';
 
 @Component({
   selector: 'app-maps',
@@ -10,14 +11,23 @@ import {simpleuser} from '../../_service/Models/User';
 export class MapsComponent implements OnInit {
   errormessage: string;
   listofuser: simpleuser[] = [];
-  button_color = 'btn btn-light';
-  validate_value = 'valide';
+  formationNumb: any;
+  VideoNumber: any;
+  CompteRenduNumber: any;
 
 
-  constructor(private simpleuserservice: SimpleuserService) {
+  constructor(private simpleuserservice: SimpleuserService, private adminService : AdminserviceService) {
   }
 
   ngOnInit() {
+    this.adminService.getStat().subscribe(
+      (data) => {
+        console.log(data);
+        this.formationNumb = data.formationNumber;
+        this.VideoNumber = data.videoNumber;
+        this.CompteRenduNumber = data.compteRenduNumber;
+      }
+    );
     this.simpleuserservice.userList().subscribe(
       (p) => {
         this.listofuser = p;

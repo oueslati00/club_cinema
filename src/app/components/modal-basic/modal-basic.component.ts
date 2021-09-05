@@ -29,6 +29,7 @@ export class ModalBasicComponent implements OnInit {
     console.log('compte rendu list ' + this.idformation);
        this.adminService.getCompteRendubyformation(this.idformation).subscribe(
          data => {
+
            this.compteRenduList = data;
          }
        );
@@ -42,15 +43,7 @@ export class ModalBasicComponent implements OnInit {
     });
   }
 
-/*  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
-  }*/
+
   downloadCompteRendu(id: any){
     this.adminService.downloadCompteRendu(id);
   }

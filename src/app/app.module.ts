@@ -42,7 +42,8 @@ import { AddDetailCoursComponent } from './pages/addformation/add-detail-cours/a
 import {AddformationComponent} from './pages/addformation/addformation.component';
 import { ParallaxDirective } from './pages/home-page/common/parallax.directive';
 import {MdbCarouselModule} from 'mdb-angular-ui-kit/carousel';
-import {ModalModule} from 'ngx-bootstrap/modal';
+
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 
 
@@ -87,12 +88,14 @@ import {ModalModule} from 'ngx-bootstrap/modal';
     AddChapterListComponent,
     AddDetailCoursComponent,
     AddformationComponent,
-    ParallaxDirective
+    ParallaxDirective,
+
   ],
   providers: [authInterceptorProviders],
   exports: [
     AddDetailCoursComponent,
-    AddChapterListComponent
+    AddChapterListComponent,
+    MatSlideToggleModule
   ],
   bootstrap: [AppComponent]
 })

@@ -2,7 +2,18 @@
 <br>
 <br>
 <br>
-<h1>list des formations disponible</h1>
+<div class="row">
+  <div class="col-sm">
+    <h1 style="margin-left: 20px">list des formations disponibles</h1>
+  </div>
+  <div class="col-sm " style="margin-left: 10px" *ngIf="NotSimpleUSer()">
+    <div class="custom-control custom-switch">
+      <input type="checkbox" class="custom-control-input" id="customSwitches" [(ngModel)]="isChecked" [ngModelOptions]="{standalone: true}" (click)="checkCheckBoxvalue()">
+      <label class="custom-control-label" for="customSwitches">{{message}}</label>
+    </div>
+  </div>
+</div>
+
 <div class="container">
   <div class="row" >
     <div class="col-md-3" *ngFor="let formation of list">
@@ -17,6 +28,7 @@
           <h4 class="card-title white-text">{{formation.formationName}}</h4>
           <p class="card-text white-text">{{formation.formateurName}}</p>
           <p class="card-text white-text">{{formation.dateToStart}}</p>
+          <button *ngIf="formation.formateurName === username" class="btn btn-sm btn-danger" (click)="remove(formation)"> remove</button>
         </div>
       </div>
     </div>

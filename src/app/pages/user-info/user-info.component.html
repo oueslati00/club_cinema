@@ -6,9 +6,8 @@
     <div class="row">
       <div class="col-lg-7 col-md-10">
         <h1 class="display-2 text-white">Welcome </h1>
-        <p class="text-white mt-0 mb-5">This is your profile page. enjoy in doing what you want ! </p>
-       <img [src]="imageUrl" width="200px" height="200px">
-        <a  class="btn btn-info" (click)="update()">Edit profile</a>
+       <img [src]="imageUrl" width="200px" height="200px" style="margin-top: 5px; margin-bottom: 5px">
+        <a  class="btn btn-info" (click)="update()">modifier</a>
       </div>
     </div>
   </div>
@@ -21,17 +20,17 @@
         <div class="card-header bg-white border-0">
           <div class="row align-items-center">
             <div class="col-8">
-              <h3 class="mb-0">My account</h3>
+              <h3 class="mb-0">Mon compte</h3>
             </div>
           </div>
         </div>
         <div class="card-body">
-            <h6 class="heading-small text-muted mb-4">User information</h6>
+
             <div class="pl-lg-4">
               <div class="row">
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label class="form-control-label" for="input-username">Username</label>
+                    <label class="form-control-label" for="input-username">username</label>
                     <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" [(ngModel)]="user.username" disabled>
                   </div>
                 </div>
@@ -76,14 +75,14 @@
               </div>
             </div>
           <hr class="my-4" />
-          <h6 class="heading-small text-muted mb-4">add your image here</h6>
+          <h6 class="heading-small text-muted mb-4">ajouter votre photo ici</h6>
           <div class="pl-lg-4">
             <div class="container">
               <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)"
                              (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
                 <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
                   drag and drop the file
-                  <button type="button" (click)="openFileSelector()">Browse</button>
+                  <button type="button" (click)="openFileSelector()">click me </button>
                 </ng-template>
               </ngx-file-drop>
               <div class="upload-table">

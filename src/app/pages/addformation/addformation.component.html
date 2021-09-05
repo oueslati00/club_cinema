@@ -2,8 +2,8 @@
   <div class="container-fluid">
     <div class="header-body">
       <!-- Card stats -->
-      <h1 class="display-2 text-white">Add formation interface</h1>
-      <button class="btn btn-primary" (click)="ValidateFormation()"> validate this formation </button>
+      <h1 class="display-2 text-white">Ajouter une formation</h1>
+      <button class="btn btn-primary" (click)="ValidateFormation()"> valide </button>
       <div
         class="alert alert-primary"
         *ngIf="formulaireenCours">
@@ -41,8 +41,8 @@
                   <div class="row">
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-formation-name">formation name</label>
-                        <input type="text" id="input-formation-name" class="form-control form-control-alternative" placeholder="formation name" [(ngModel)]="forma.name">
+                        <label class="form-control-label" for="input-formation-name">le nom de cette formation</label>
+                        <input type="text" id="input-formation-name" class="form-control form-control-alternative" placeholder="nom" [(ngModel)]="forma.name">
                       </div>
                     </div>
                   </div>
@@ -54,20 +54,20 @@
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about your formation here" [(ngModel)]="forma.description"></textarea>
+                        <textarea rows="4" class="form-control form-control-alternative" placeholder="description de cette formation" [(ngModel)]="forma.description"></textarea>
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-lg-4">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-city">Date To start</label>
+                        <label class="form-control-label" for="input-city">date de debut</label>
                         <input type="date" id="input-city" class="form-control form-control-alternative" [(ngModel)]="forma.firstDate">
                       </div>
                     </div>
                     <div class="col-lg-4">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-country">Date To end</label>
+                        <label class="form-control-label" for="input-country">date de fin</label>
                         <input type="date" id="input-country" class="form-control form-control-alternative" [(ngModel)]="forma.finalDate">
                       </div>
                     </div>

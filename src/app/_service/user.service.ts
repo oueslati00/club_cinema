@@ -64,6 +64,7 @@ export class UserService {
 
   constructor(private http: HttpClient, private sanitizer: DomSanitizer) { }
   getformationList(): Observable<FormationInformation[]> {
+    console.log('get list ofmration was executed ');
     return this.http.get<FormationInformation[]>(DISPLAY_FORMATION_API + 'list' );
   }
  async getFormationById(id: number) {

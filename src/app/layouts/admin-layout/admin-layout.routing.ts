@@ -17,10 +17,10 @@ import {DisplaylistvideoComponent} from '../../pages/displaylistvideo/displaylis
 
 export const AdminLayoutRoutes: Routes = [
   {path: '' ,  redirectTo : 'listdesformations', pathMatch: 'full' },
-  { path: 'dashboard',      component: DashboardComponent },
+ /* { path: 'dashboard',      component: DashboardComponent },*/
     { path: 'user-profile',   component: UserInfoComponent },
-    { path: 'tables',         component: TablesComponent },
-    { path: 'icons',          component: IconsComponent },
+  /*  { path: 'tables',         component: TablesComponent },
+    { path: 'icons',          component: IconsComponent },*/
     { path: 'members',           component: MapsComponent },
     {path: 'addforamtion', component: AddformationComponent},
     {path : 'videoDkika', component: AddvideoComponent},

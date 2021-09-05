@@ -16,6 +16,5 @@ export const FormateurLayoutRoutes: Routes = [
   {path : 'listdesformations'  , component: FormationListComponent},
   {path : 'addformation'  , component: AddformationComponent},
   {path: 'mesformations' , component : DisplayMyformationComponent},
-  {path : 'ajouterVideoDkika' , component : AddvideoComponent},
   {path : '**' , component : ErrorPageComponent}
 ];

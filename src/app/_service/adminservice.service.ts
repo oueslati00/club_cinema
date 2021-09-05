@@ -34,4 +34,9 @@ export class AdminserviceService {
     URL.revokeObjectURL(url);
 
   }
+
+  getStat(): Observable<any> {
+    return this.http.get('http://localhost:9097/api/admin/statistic');
+
+  }
 }
