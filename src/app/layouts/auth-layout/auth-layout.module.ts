@@ -7,7 +7,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { LoginComponent } from '../../pages/login/login.component';
 import { RegisterComponent } from '../../pages/register/register.component';
-import {HomePageComponent} from '../../pages/home-page/home-page.component';
 import {RfxParallaxModule} from 'rfx-parallax';
 import {MdbCarouselModule} from 'mdb-angular-ui-kit/carousel';
 import {ForgetpasswordComponent} from '../../pages/forgetpassword/forgetpassword.component';
