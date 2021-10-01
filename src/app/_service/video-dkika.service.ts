@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {FormateurService} from './formateur.service';
 import {DomSanitizer} from '@angular/platform-browser';
+import {environment} from '../../environments/environment.prod';
 
 export class VideoDkikaRequest {
   description: string;
@@ -28,11 +28,11 @@ export class VideoDkikaService {
 
   // get description of all videoDkika
   getVideoDkikaList(): Observable<VideoDkikaResposne[]> {
-     return this.http.get<VideoDkikaResposne[]>('http://localhost:9097/api/user/videoDkika/all');
+     return this.http.get<VideoDkikaResposne[]>(environment.url + 'api/user/videoDkika/all');
   }
   // get video dkika by Id
   getById(id: number): Observable<VideoDkikaResposne> {
-    return this.http.get<VideoDkikaResposne>('http://localhost:9097/api/user/videoDkika/' + id.toString());
+    return this.http.get<VideoDkikaResposne>(environment.url + 'api/user/videoDkika/' + id.toString());
   }
 
   // upload video
@@ -40,17 +40,17 @@ export class VideoDkikaService {
     let formadata: any = new FormData();
     formadata.append('file', file);
     console.log(formadata);
-    return this.http.post<number>('http://localhost:9097/api/formateur/videoDkika/upload', formadata);
+    return this.http.post<number>(environment.url + 'api/formateur/videoDkika/upload', formadata);
   }
   // remove video dkika  a travers son Id
   deleteVideo(id: number): Observable<any> {
-    return this.http.delete('http://localhost:9097/api/admin/videoDkika/' + id);
+    return this.http.delete(environment.url + 'api/admin/videoDkika/' + id);
   }
 
   // streamingVideoDkikaBySonId
 
   byterange(id: number): Observable<any> {
-    return this.http.get<any>('http://localhost:9097/api/user/Videodkika/byterange/' + id.toString(), { responseType: 'blob' as 'json'});
+    return this.http.get<any>(environment.url + 'api/user/Videodkika/byterange/' + id.toString(), { responseType: 'blob' as 'json'});
   }
 
   addVideoList(list: VideoDkikaResposne[]) {
@@ -73,6 +73,6 @@ export class VideoDkikaService {
   }
   // addVideoDkika description before uploading the file
    addvideoDescription(video: VideoDkikaRequest): Observable<any> {
-    return this.http.post<any>('http://localhost:9097/api/formateur/videoDkika/video', video);
+    return this.http.post<any>(environment.url + 'api/formateur/videoDkika/video', video);
    }
 }

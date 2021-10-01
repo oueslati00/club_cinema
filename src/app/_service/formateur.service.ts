@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {observable, Observable} from 'rxjs';
-import {chapter} from './Models/formation';
-import {simpleuser} from './Models/User';
+import { Observable} from 'rxjs';
+import {environment} from '../../environments/environment.prod';
 import {TokenStorageService} from '../layouts/auth-layout/_service/token-storage.service';
 
-const FORMATEUR_ADD_FORMATION_API = 'http://localhost:9097/api/formateur/formation';
-const FORMATEUR_ADD_VIDEO_API = 'http://localhost:9097/api/formateur/formation/addVideo';
+const FORMATEUR_ADD_FORMATION_API = environment.url + 'api/formateur/formation';
+const FORMATEUR_ADD_VIDEO_API = environment.url + 'api/formateur/formation/addVideo';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -154,10 +153,10 @@ export class FormateurService {
   }
 
   getListCompteRenduForForamteurById(id: number): Observable<any> {
-   return  this.http.get<any>('http://localhost:9097/api/formateur/list/compteRendu/33');
+   return  this.http.get<any>(environment.url + 'api/formateur/list/compteRendu/33');
   }
 
   removeFormation(id: number): Observable<any> {
-    return  this.http.delete<any>('http://localhost:9097/api/formateur/formation/' + id.toString());
+    return  this.http.delete<any>(environment.url + 'api/formateur/formation/' + id.toString());
   }
 }

@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable, ObservedValueOf} from 'rxjs';
+import {Observable} from 'rxjs';
+import {environment} from '../../environments/environment.prod';
 import {DomSanitizer} from '@angular/platform-browser';
-import {TokenStorageService} from '../layouts/auth-layout/_service/token-storage.service';
-const DISPLAY_FORMATION_API = 'http://localhost:9097/api/user/formation/';
-const USER_INFORMATION_API = 'http://localhost:9097/api/user/';
-const COMMENT_API = 'http://localhost:9097/api/user/Comment/';
-const COMPTE_RENDU = 'http://localhost:9097/api/user/compteRendu';
+const DISPLAY_FORMATION_API = environment.url + 'api/user/formation/';
+const USER_INFORMATION_API = environment.url + 'api/user/';
+const COMMENT_API = environment.url + 'api/user/Comment/';
+const COMPTE_RENDU = environment.url + 'api/user/compteRendu';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -75,7 +75,7 @@ export class UserService {
   }
   // stream a video
   async streamVideoFormationBycourId(idcour: number) {
-    const result = await this.http.get<any>('http://localhost:9097/api/user/formation/byterange/' + idcour.toString(), {responseType: 'blob' as 'json'}).toPromise()
+    const result = await this.http.get<any>(environment.url + 'api/user/formation/byterange/' + idcour.toString(), {responseType: 'blob' as 'json'}).toPromise()
    return  result;
   }
 
@@ -121,7 +121,7 @@ export class UserService {
         formdata.append('file' , file);
         formdata.append('courId', courId);
         formdata.append('userId', data.id);
-        this.http.post<any>('http://localhost:9097/api/user/compteRendu', formdata).subscribe(
+        this.http.post<any>(environment.url + 'api/user/compteRendu', formdata).subscribe(
           data1 => {
             console.log(data1);
             this.compteRenduIsDone = true;
@@ -169,7 +169,7 @@ export class UserService {
 
   }
   getUserByToken(): Observable<any> {
-   return  this.http.get('http://localhost:9097/api/user/test');
+   return  this.http.get(environment.url + 'api/user/test');
   }
 
 }

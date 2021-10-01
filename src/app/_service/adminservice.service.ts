@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {environment} from '../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -9,17 +10,17 @@ export class AdminserviceService {
 
   constructor(private http: HttpClient) { }
 
-  getAllForamtion(): Observable<any>{
-    return this.http.get<any>('http://localhost:9097/api/user/formation/list');
+  getAllForamtion(): Observable<any> {
+    return this.http.get<any>(environment.url + 'api/user/formation/list');
   }
 
   getCompteRendubyformation(idformation: any): Observable<any> {
-    return this.http.get('http://localhost:9097/api/admin/list/compteRenduByformation/' + idformation);
+    return this.http.get(environment.url + 'api/admin/list/compteRenduByformation/' + idformation);
 
   }
 
   downloadCompteRendu(id: any): void {
-     this.http.get('http://localhost:9097/api/admin/compteRendu/byterange/' + id , { responseType: 'text' as 'json'}).subscribe(
+     this.http.get(environment.url + 'api/admin/compteRendu/byterange/' + id , { responseType: 'text' as 'json'}).subscribe(
        data => this.downloadFile(data)
      );
   }
@@ -36,7 +37,7 @@ export class AdminserviceService {
   }
 
   getStat(): Observable<any> {
-    return this.http.get('http://localhost:9097/api/admin/statistic');
+    return this.http.get(environment.url + 'api/admin/statistic');
 
   }
 }
