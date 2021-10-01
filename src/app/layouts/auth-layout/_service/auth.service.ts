@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {environment} from '../../../../environments/environment.prod';
 
-const AUTH_API = environment + 'api/auth/';
+const AUTH_API = environment.url + 'api/auth/';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -18,7 +18,7 @@ export class AuthService {
 
   login(credentials): Observable<any> {
     console.log(credentials);
-    return this.http.post(environment + 'api/auth/signin', {
+    return this.http.post(environment.url + 'api/auth/signin', {
       username: credentials.username,
       password: credentials.password
     }, httpOptions);
