@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  url: 'https://dkikacinema.herokuapp.com/'
+  url: 'https://warm-bayou-57069.herokuapp.com/'
 };
