@@ -6,7 +6,7 @@ import {environment} from '../../../../environments/environment.prod';
 const AUTH_API = environment.url + 'api/auth/';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' , })
 };
 
 @Injectable({
