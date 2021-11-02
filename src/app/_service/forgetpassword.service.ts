@@ -1,10 +1,10 @@
 import {Injectable, Type} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {environment} from '../../environments/environment.prod';
 
 
-
-const FORGET_PASSWORD_API = 'http://localhost:9097/api/auth/forget/';
+const FORGET_PASSWORD_API = environment.url + 'api/auth/forget/';
 interface Fgpass {
   code: string;
   password: string;

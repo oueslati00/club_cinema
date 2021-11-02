@@ -21,7 +21,6 @@ import { DisplaylistvideoComponent } from './pages/displaylistvideo/displaylistv
 import { AddvideoComponent } from './pages/addvideo/addvideo.component';
 import {NgxFileDropModule} from 'ngx-file-drop';
 import {RfxParallaxModule} from 'rfx-parallax';
-import {VgCoreModule} from 'videogular2/compiled/src/core/core';
 import {authInterceptorProviders} from './layouts/auth-layout/_helpers/auth.interceptor';
 import { SendmailComponent } from './pages/forgetpassword/sendmail/sendmail.component';
 import { SendcodeComponent } from './pages/forgetpassword/sendcode/sendcode.component';
@@ -40,7 +39,6 @@ import { DisplayMyformationComponent } from './pages/display-myformation/display
 import { AddChapterListComponent } from './pages/addformation/add-chapter-list/add-chapter-list.component';
 import { AddDetailCoursComponent } from './pages/addformation/add-detail-cours/add-detail-cours.component';
 import {AddformationComponent} from './pages/addformation/addformation.component';
-import { ParallaxDirective } from './pages/home-page/common/parallax.directive';
 import {MdbCarouselModule} from 'mdb-angular-ui-kit/carousel';
 
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
@@ -59,7 +57,6 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     AppRoutingModule,
     NgxFileDropModule,
     RfxParallaxModule,
-    VgCoreModule,
     IvyCarouselModule,
     MatExpansionModule,
     MatListModule,
@@ -87,8 +84,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     DisplayMyformationComponent,
     AddChapterListComponent,
     AddDetailCoursComponent,
-    AddformationComponent,
-    ParallaxDirective,
+    AddformationComponent
 
   ],
   providers: [authInterceptorProviders],

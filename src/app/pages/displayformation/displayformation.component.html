@@ -10,7 +10,7 @@
 
 
       <div class="progress" style="height: 20px;">
-        <div class="progress-bar" role="progressbar" style="width:{{formation.durationPerNow}}%;" aria-valuenow="{{formation.durationPerNow}}" aria-valuemin="0" aria-valuemax="100">{{formation.durationPerNow}} %</div>
+        <div class="progress-bar" role="progressbar"  [style.aria-valuenow] ="formation.durationPerNow" aria-valuemin="0" aria-valuemax="100">{{formation.durationPerNow}} %</div>
       </div>
     </div>
   </div>
